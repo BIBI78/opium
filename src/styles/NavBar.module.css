@@ -3,32 +3,37 @@
     border: 1px solid #dadadf;
   
     font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 
 .NavLink {
     padding: 5px;
+   
     
-
-}
-
-.NavLink:hover {
-    padding: 5px;
-    color: red;
 }
 
 
-.NavBar:hover {
-    
-    color: red;
-}
 
 .Active i {
     color: red;
 }
 
 .navBarIcons{
+    font-size: medium;
     padding: 5x;
+    display: flex;
+    align-items: center;
+    
+}
+.navBarIcons:hover .navBarText {
+    /* Add your hover styles here */
+    color: red;
+    /* For example */
+}
+
+.navBarText {
+    font-family: 'Times New Roman', Times, serif;
 }
 .navBarIcons:hover{
     color: red;

@@ -436,7 +436,7 @@ const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
                 overlay={<Tooltip>You can't like your own beat!</Tooltip>}
               >
               
-                <i className="far fa-heart" />
+               <i className={`far fa-heart ${styles.Heart}`} />
               </OverlayTrigger>
             ) : like_id ? (
               <span onClick={handleUnlike}>
@@ -444,14 +444,14 @@ const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
               </span>
             ) : currentUser ? (
               <span onClick={handleLike}>
-                <i className={`far fa-heart ${styles.HeartOutline}`} />
+                <i className={`far fa-heart ${styles.Heart}`} />
               </span>
             ) : (
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to like beats!</Tooltip>}
               >
-                <i className="far fa-heart" />
+                <i className={`far fa-heart ${styles.Heart}`} />
               </OverlayTrigger>
                   
             )}

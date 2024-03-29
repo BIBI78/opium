@@ -29,7 +29,7 @@ const NavBar = () => {
       activeClassName={styles.Active}
       to="/mybeats/create" 
     >
-      <i className={`far fa-file-audio ${styles.navBarIcons}`}></i>Upload Beats
+      <i className={`far fa-file-audio ${styles.navBarIcons}`}>Upload Beats</i>
     </NavLink>
   );
   
@@ -40,7 +40,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/feed"
       >
-        <i className={`fas fa-stream ${styles.navBarIcons}`}></i>Feed
+        <i className={`fas fa-stream ${styles.navBarIcons}`}>Feed</i>
       </NavLink>
 
       <NavLink
@@ -48,7 +48,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/liked"
       >
-        <i className={`fas fa-heart ${styles.navBarIcons}`}></i>Liked
+        <i className={`fas fa-heart ${styles.navBarIcons}`}>Liked</i>
       </NavLink>
      
       <NavLink 
@@ -56,7 +56,7 @@ const NavBar = () => {
         to="/" 
         onClick={handleSignOut}
       >
-        <i className={`fas fa-sign-out-alt ${styles.navBarIcons}`}></i>Sign out
+        <i className={`fas fa-sign-out-alt ${styles.navBarIcons}`}>Sign out</i>
       </NavLink>
 
       <NavLink
@@ -75,7 +75,10 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signin"
       >
-        <i className={`fas fa-sign-in-alt ${styles.NavLink}  ${styles.navBarIcons}`}></i>Sign in
+        {/* <i className={`fas fa-sign-in-alt ${styles.NavLink}  ${styles.navBarIcons}`}></i>Sign in */}
+
+        <i className={`fas fa-sign-in-alt ${styles.navBarIcons}`}> Sign in </i>
+
       </NavLink>
    
       <NavLink 
@@ -83,7 +86,7 @@ const NavBar = () => {
         className={styles.NavLink} 
         activeClassName={styles.Active}
       >
-        <i className={`fas fa-user-plus ${styles.navBarIcons}`}></i>Sign up
+        <i className={`fas fa-user-plus ${styles.navBarIcons}`}> Sign up </i>
       </NavLink>
     </>
   );
@@ -115,7 +118,18 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i className="fas fa-home"></i>Home
+              {/* <i className={`fas fa-home ${styles.navBarIcons}`}>
+                Home
+              </i> */}
+             
+    
+<span className={styles.navBarIcons}>
+  <i className="fas fa-home"></i>
+  <span className={styles.navBarText}>Home</span>
+</span>
+
+  
+             
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
