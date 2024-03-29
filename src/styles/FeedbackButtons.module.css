@@ -5,30 +5,40 @@
     /* color: red; */
 }
 
-
-
-
 /* Define hover styles for the coldIcon */
 
-/* 
-.fireIcon:hover {
-    color: red; 
-    content: "this beat is FIRE ";
-} */
 
-.fireIcon:hover::before {
-    content: "This beat is FIRE";
+.fireIcon:hover {
+    color: red;
+    content: "this beat is FIRE ";
+}
+
+.fireIconContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.fireIconText {
     position: absolute;
-    background-color: rgba(255, 0, 0, 0.8);
-    color: green;
-    padding: 4px 8px;
-    border-radius: 4px;
-    top: -30px;
+    top: -25px;
     /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
+    background-color: white;
+    color: red;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 4px;
     white-space: nowrap;
     /* Prevent wrapping */
+    opacity: 0;
+    /* Initially hide the text */
+    transition: opacity 0.3s ease;
+}
+
+.fireIconContainer:hover .fireIconText {
+    opacity: 1;
+    /* Show the text on hover */
 }
 
 /*  */

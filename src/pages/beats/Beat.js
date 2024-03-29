@@ -482,8 +482,12 @@ const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
             )}
           </span>
           {/* PROBLEM HERE */}
-<span className={feedbackStyles.FeedbackButtons}>
-<FireFeedbackButton className={feedbackStyles.fireIcon} beat={id} fire_id={fire_id} fire_count={fire_count} />
+          <span className={feedbackStyles.FeedbackButtons}>
+   <span className={feedbackStyles.fireIconContainer}>
+              <FireFeedbackButton className={feedbackStyles.fireIcon} beat={id} fire_id={fire_id} fire_count={fire_count} />
+                <span className={feedbackStyles.fireIconText}>This beat is FIRE</span>
+            </span>
+            
 <HardFeedbackButton className={feedbackStyles.hardIcon} beat={id} hard_id={hard_id} hard_count={hard_count} />
 <TrashFeedbackButton className={feedbackStyles.trashIcon} beat={id} trash_id={trash_id} trash_count={trash_count} />
 <ColdFeedbackButton className={feedbackStyles.coldIcon} beat={id} cold_id={cold_id} cold_count={cold_count} />
