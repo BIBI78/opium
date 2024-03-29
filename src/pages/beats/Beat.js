@@ -487,12 +487,26 @@ const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
               <FireFeedbackButton className={feedbackStyles.fireIcon} beat={id} fire_id={fire_id} fire_count={fire_count} />
                 <span className={feedbackStyles.fireIconText}>This beat is FIRE</span>
             </span>
-            
-<HardFeedbackButton className={feedbackStyles.hardIcon} beat={id} hard_id={hard_id} hard_count={hard_count} />
-<TrashFeedbackButton className={feedbackStyles.trashIcon} beat={id} trash_id={trash_id} trash_count={trash_count} />
-<ColdFeedbackButton className={feedbackStyles.coldIcon} beat={id} cold_id={cold_id} cold_count={cold_count} />
-<LoopFeedbackButton className={feedbackStyles.loopIcon} beat={id} loop_id={loop_id} loop_count={loop_count} />
 
+ <span className={feedbackStyles.hardIconContainer}>
+            <HardFeedbackButton className={feedbackStyles.hardIcon} beat={id} hard_id={hard_id} hard_count={hard_count} />
+                <span className={feedbackStyles.hardIconText}>This beat is HARD</span>
+            </span>
+
+<span className={feedbackStyles.trashIconContainer}>
+            <TrashFeedbackButton className={feedbackStyles.trashIcon} beat={id} trash_id={trash_id} trash_count={trash_count} />
+              <span className={feedbackStyles.trashIconText}>This beat is TRASH</span>
+            </span>
+
+<span className={feedbackStyles.coldIconContainer}>
+            <ColdFeedbackButton className={feedbackStyles.coldIcon} beat={id} cold_id={cold_id} cold_count={cold_count} />
+             <span className={feedbackStyles.coldIconText}>This beat is COLD</span>
+            </span>
+            
+<span className={feedbackStyles.loopIconContainer}>
+<LoopFeedbackButton className={feedbackStyles.loopIcon} beat={id} loop_id={loop_id} loop_count={loop_count} />
+  <span className={feedbackStyles.loopIconText}>play that AGAIN</span>
+            </span>
 </span>
 
 

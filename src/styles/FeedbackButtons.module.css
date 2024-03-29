@@ -42,22 +42,143 @@
 }
 
 /*  */
+
 .hardIcon:hover {
     color: yellow;
-    content: "this beat is FIRE ";
+    content: "this beat is HARD ";
 }
+
+.hardIconContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.hardIconText {
+    position: absolute;
+    top: -25px;
+    /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: yellow;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    /* Prevent wrapping */
+    opacity: 0;
+    /* Initially hide the text */
+    transition: opacity 0.3s ease;
+}
+
+.hardIconContainer:hover .hardIconText {
+    opacity: 1;
+    /* Show the text on hover */
+}
+
+
+/*  */
+
 .trashIcon:hover {
     color: green;
-    content: "this beat is FIRE ";
+    content: "this beat is TRASH ";
 }
+
+.trashIconContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.trashIconText {
+    position: absolute;
+    top: -25px;
+    /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: green;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    /* Prevent wrapping */
+    opacity: 0;
+    /* Initially hide the text */
+    transition: opacity 0.3s ease;
+}
+
+.trashIconContainer:hover .trashIconText {
+    opacity: 1;
+    /* Show the text on hover */
+}
+
+/* cold */
 
 .coldIcon:hover {
     color: blue;
-    content: "this beat is FIRE ";
+    content: "this beat is COLD ";
 }
+
+.coldIconContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.coldIconText {
+    position: absolute;
+    top: -25px;
+    /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: blue;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    /* Prevent wrapping */
+    opacity: 0;
+    /* Initially hide the text */
+    transition: opacity 0.3s ease;
+}
+
+.coldIconContainer:hover .coldIconText {
+    opacity: 1;
+    /* Show the text on hover */
+}
+
+
+/* loop */
 
 .loopIcon:hover {
     color: purple;
-    content: "this beat is FIRE ";
+    content: "Play that again !! ";
 }
 
+.loopIconContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.loopIconText {
+    position: absolute;
+    top: -25px;
+    /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: purple;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    /* Prevent wrapping */
+    opacity: 0;
+    /* Initially hide the text */
+    transition: opacity 0.3s ease;
+}
+
+.loopIconContainer:hover .loopIconText {
+    opacity: 1;
+    /* Show the text on hover */
+}
