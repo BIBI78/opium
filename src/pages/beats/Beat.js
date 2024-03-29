@@ -302,34 +302,37 @@ const handleLoopFeedbackUnlike = async () => {
     }, [id]);
   
   // fire button 2
-  const FireFeedbackButton = ({ beat, fire_id, fire_count }) => {
+const FireFeedbackButton = ({ className, beat, fire_id, fire_count }) => {
   return (
-    <div className={styles.FireFeedbackButton}>
+   
+       <div className={styles.FireFeedbackButton} >
       {fire_id ? (
         <span onClick={handleFireFeedbackUnlike}>
-          <i className={`fas fa-fire ${styles.Fire}`} />
+          <i className={`fas fa-fire ${feedbackStyles.fireIcon}`} />
         </span>
       ) : (
         <span onClick={handleFireFeedbackLike}>
-          <i className={`far fa-fire ${styles.FireOutline}`} />
+          <i className={`fas fa-fire ${feedbackStyles.fireIcon}`} />
         </span>
       )}
       <span>{fire_count}</span>
     </div>
   );
 };
+
   // cold feedback button 2
-  const ColdFeedbackButton = ({ beat, cold_id, cold_count }) => {
+  const ColdFeedbackButton = ({ className,beat, cold_id, cold_count }) => {
     return (
-      <div className={styles.ColdFeedbackButton}>
+    <div className={styles.ColdFeedbackButton} >
+
         {cold_id ? (
           <span onClick={handleColdFeedbackUnlike}>
-            <i className={`fas fa-snowflake ${styles.Cold}`} />
+            <i className={`far fa-snowflake ${feedbackStyles.coldIcon}`} />
           </span>
         ) : (
         
           <span onClick={handleColdFeedbackLike}>
-            <i className={`far fa-snowflake ${styles.ColdOutline}`} />
+             <i className={`far fa-snowflake ${feedbackStyles.coldIcon}`} />
             </span>
             
         )}
@@ -338,18 +341,18 @@ const handleLoopFeedbackUnlike = async () => {
     );
   };
   // Hard button part 2
-  const HardFeedbackButton = ({ beat, hard_id, hard_count }) => {
+  const HardFeedbackButton = ({ className,beat, hard_id, hard_count }) => {
     return (
       <div className={styles.HardFeedbackButton}>
         {hard_id ? (
           <span onClick={handleHardFeedbackUnlike}>
-           <i className={`fas fa-gavel ${styles.Hard}`} />
+           <i className={`fas fa-gavel ${feedbackStyles.hardIcon}`} />
 
           </span>
         ) : (
         
           <span onClick={handleHardFeedbackLike}>
-            <i className={`fas fa-gavel ${styles.HardOutline}`} />
+            <i className={`fas fa-gavel ${feedbackStyles.hardIcon}`} />
             </span>
             
         )}
@@ -358,16 +361,16 @@ const handleLoopFeedbackUnlike = async () => {
     );
   };
   // trash button 2 
-  const TrashFeedbackButton = ({ beat, trash_id, trash_count }) => {
+  const TrashFeedbackButton = ({ className, beat, trash_id, trash_count }) => {
   return (
     <div className={styles.TrashFeedbackButton}>
       {trash_id ? (
         <span onClick={handleTrashFeedbackUnlike}>
-          <i className={`fas fa-trash ${styles.Trash}`} />
+          <i className={`fas fa-trash ${feedbackStyles.trashIcon}`} />
         </span>
       ) : (
         <span onClick={handleTrashFeedbackLike}>
-          <i className={`fas fa-trash ${styles.TrashOutline}`} />
+          <i className={`fas fa-trash ${feedbackStyles.trashIcon}`} />
         </span>
       )}
       <span>{trash_count}</span>
@@ -375,16 +378,16 @@ const handleLoopFeedbackUnlike = async () => {
   );
   };
   // loop button 2
-const LoopFeedbackButton = ({ beat, loop_id, loop_count }) => {
+const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
   return (
     <div className={styles.LoopFeedbackButton}>
       {loop_id ? (
         <span onClick={handleLoopFeedbackUnlike}>
-          <i className={`fas fa-redo ${styles.Loop}`} />
+          <i className={`fas fa-redo ${feedbackStyles.loopIcon}`} />
         </span>
       ) : (
         <span onClick={handleLoopFeedbackLike}>
-          <i className={`fas fa-redo ${styles.LoopOutline}`} />
+          <i className={`fas fa-redo ${feedbackStyles.loopIcon}`} />
         </span>
       )}
       <span>{loop_count}</span>
@@ -480,42 +483,15 @@ const LoopFeedbackButton = ({ beat, loop_id, loop_count }) => {
           </span>
           {/* PROBLEM HERE */}
 <span className={feedbackStyles.FeedbackButtons}>
-  <FireFeedbackButton beat={id} fire_id={fire_id} fire_count={fire_count} />
-  <ColdFeedbackButton beat={id} cold_id={cold_id} cold_count={cold_count} />
-  <HardFeedbackButton beat={id} hard_id={hard_id} hard_count={hard_count} />
-  <TrashFeedbackButton beat={id} trash_id={trash_id} trash_count={trash_count} />
-  <LoopFeedbackButton beat={id} loop_id={loop_id} loop_count={loop_count} />
+<FireFeedbackButton className={feedbackStyles.fireIcon} beat={id} fire_id={fire_id} fire_count={fire_count} />
+<HardFeedbackButton className={feedbackStyles.hardIcon} beat={id} hard_id={hard_id} hard_count={hard_count} />
+<TrashFeedbackButton className={feedbackStyles.trashIcon} beat={id} trash_id={trash_id} trash_count={trash_count} />
+<ColdFeedbackButton className={feedbackStyles.coldIcon} beat={id} cold_id={cold_id} cold_count={cold_count} />
+<LoopFeedbackButton className={feedbackStyles.loopIcon} beat={id} loop_id={loop_id} loop_count={loop_count} />
+
 </span>
 
 
-
-          {/* <div>
-     <FireFeedbackButton
-        beat={id}
-        fire_id={fire_id}
-        fire_count={fire_count}
-            />
-    <ColdFeedbackButton
-        beat={id}
-        cold_id={cold_id}
-        cold_count={cold_count}
-            />
-      <HardFeedbackButton
-        beat={id}
-        hard_id={hard_id}
-        hard_count={hard_count}
-            />
-      <TrashFeedbackButton
-        beat={id}
-        trash_id={trash_id}
-        trash_count={trash_count}
-            />
-       <LoopFeedbackButton
-        beat={id}
-        loop_id={loop_id}
-        loop_count={loop_count}
-            />
-          </div> */}
 
         </Card.Body>
       </Card>

@@ -2,4 +2,52 @@
      display: flex;
     justify-content: flex-end; 
     float: right;
+    /* color: red; */
 }
+
+
+
+
+/* Define hover styles for the coldIcon */
+
+/* 
+.fireIcon:hover {
+    color: red; 
+    content: "this beat is FIRE ";
+} */
+
+.fireIcon:hover::before {
+    content: "This beat is FIRE";
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: green;
+    padding: 4px 8px;
+    border-radius: 4px;
+    top: -30px;
+    /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+/*  */
+.hardIcon:hover {
+    color: yellow;
+    content: "this beat is FIRE ";
+}
+.trashIcon:hover {
+    color: green;
+    content: "this beat is FIRE ";
+}
+
+.coldIcon:hover {
+    color: blue;
+    content: "this beat is FIRE ";
+}
+
+.loopIcon:hover {
+    color: purple;
+    content: "this beat is FIRE ";
+}
+
