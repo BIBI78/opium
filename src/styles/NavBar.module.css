@@ -1,23 +1,24 @@
 .NavBar {
     background-color: #ffffff;
     border: 1px solid #dadadf;
-  
     font-weight: 400;
     font-family: 'Times New Roman', Times, serif;
 }
-
+.navBarIconsText {
+    font-family: 'Times New Roman', Times, serif
+}
 
 .NavLink {
     padding: 5px;
+    font-family: 'Times New Roman', Times, serif
    
     
 }
 
-
-
 .Active i {
     color: red;
 }
+/*  */
 
 .navBarIcons{
     font-size: medium;
@@ -27,17 +28,27 @@
     
 }
 .navBarIcons:hover .navBarText {
-    /* Add your hover styles here */
     color: red;
-    /* For example */
+    font-family: 'Times New Roman', Times, serif
+    
 }
 
-.navBarText {
+
+.navBarIconsText{
+    font-weight: 400;
     font-family: 'Times New Roman', Times, serif;
+    
 }
+
+/* attempts
+ */
+
+
+
+/*  */
 .navBarIcons:hover{
     color: red;
     padding: 5px;
-
+    
 
 }
