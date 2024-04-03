@@ -4,8 +4,10 @@ import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import { Button } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
+
 
 const Profile = (props) => {
   const { profile, mobile, imageSize = 55 } = props;
@@ -22,7 +24,12 @@ const Profile = (props) => {
     >
       <div>
         <Link className="align-self-center" to={`/profiles/${id}`}>
-          <Avatar src={image} height={imageSize} />
+
+          <Avatar
+            // src={image}
+             src={currentUser?.profile_image}
+            height={imageSize} />
+         
         </Link>
       </div>
       <div className={`mx-2 ${styles.WordBreak}`}>
