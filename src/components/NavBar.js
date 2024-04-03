@@ -75,7 +75,10 @@ const NavBar = () => {
         className={styles.navBarIcons}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <Avatar src={currentUser?.profile_image} text="PROFILE" height={40} />
+        <Avatar
+          src={currentUser?.profile_image}
+          text="PROFILE" height={40}
+        />
          
       </NavLink>
     </>

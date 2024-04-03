@@ -4,6 +4,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+// eslint-disable-next-line
 import { Button, Image } from "react-bootstrap";
 // import { Button } from "react-bootstrap";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
@@ -26,8 +27,9 @@ const Profile = (props) => {
         <Link className="align-self-center" to={`/profiles/${id}`}>
 
           <Avatar
-            // src={image}
-             src={currentUser?.profile_image}
+            // src={profile.?image}
+            //  src={currentUser?.profile_image}
+            src={image}
             height={imageSize} />
          
         </Link>
