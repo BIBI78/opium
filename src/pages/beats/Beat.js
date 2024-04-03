@@ -65,37 +65,38 @@ const Beat = (props) => {
     }
   };
   // fire feedback button 
-  const handleFireFeedbackLike = async () => {
-  try {
-    const { data } = await axiosReq.post("/feedback/fire/", { beat: id });
-    setBeats((prevBeats) => ({
-      ...prevBeats,
-      results: prevBeats.results.map((beatItem) =>
-        beatItem.id === id
-          ? { ...beatItem, fire_count: beatItem.fire_count + 1, fire_id: data.id }
-          : beatItem
-      ),
-    }));
-  } catch (err) {
-    console.log("Error submitting fire feedback:", err);
-  }
-};
+    const handleFireFeedbackLike = async () => {
+    try {
+      const { data } = await axiosReq.post("/feedback/fire/", { beat: id });
+      setBeats((prevBeats) => ({
+        ...prevBeats,
+        results: prevBeats.results.map((beatItem) =>
+          beatItem.id === id
+            ? { ...beatItem, fire_count: beatItem.fire_count + 1, fire_id: data.id }
+            : beatItem
+        ),
+      }));
+    } catch (err) {
+      console.log("Error submitting FIRE feedback:", err);
+    }
+  };
+ 
 
-const handleFireFeedbackUnlike = async () => {
-  try {
-    await axiosRes.delete(`/feedback/fire/${fire_id}/`);
-    setBeats((prevBeats) => ({
-      ...prevBeats,
-      results: prevBeats.results.map((beatItem) =>
-        beatItem.id === id
-          ? { ...beatItem, fire_count: beatItem.fire_count - 1, fire_id: null }
-          : beatItem
-      ),
-    }));
-  } catch (err) {
-    console.log("Error undoing fire feedback:", err);
-  }
-};
+  const handleFireFeedbackUnlike = async () => {
+    try {
+      await axiosRes.delete(`/feedback/fire/${fire_id}/`);
+      setBeats((prevBeats) => ({
+        ...prevBeats,
+        results: prevBeats.results.map((beatItem) =>
+          beatItem.id === id
+            ? { ...beatItem, fire_count: beatItem.fire_count - 1, fire_id: null }
+            : beatItem
+        ),
+      }));
+    } catch (err) {
+      console.log("Error undoing FIIIIRE feedback:", err);
+    }
+  };
 
 
   // cold feedback button

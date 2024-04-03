@@ -2,15 +2,18 @@
     background-color: #ffffff;
     border: 1px solid #dadadf;
     font-weight: 400;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
 }
 .navBarIconsText {
-    font-family: 'Times New Roman', Times, serif
+    font-family: 'Montserrat', sans-serif;
 }
 
 .NavLink {
     padding: 5px;
-    font-family: 'Times New Roman', Times, serif
+    font-family: 'Montserrat', sans-serif;
    
     
 }
@@ -25,18 +28,22 @@
     padding: 5x;
     display: flex;
     align-items: center;
+    display: flex;
+    align-items: center;
     
 }
 .navBarIcons:hover .navBarText {
     color: red;
-    font-family: 'Times New Roman', Times, serif
+    font-family: 'Montserrat', sans-serif;
     
 }
 
 
 .navBarIconsText{
     font-weight: 400;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
     
 }
 
@@ -50,5 +57,4 @@
     color: red;
     padding: 5px;
     
-
 }

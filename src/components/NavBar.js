@@ -8,6 +8,7 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
+// NAV BAR NOT ALIGNED 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -44,7 +45,7 @@ const NavBar = () => {
       >
         <i className={`fas fa-stream ${styles.navBarIcons}`}>
 
-            <span className={styles.navBarIconsText}> FEED</span>
+            <span className={styles.navBarIconsText}> FEED </span>
         
         </i>
       </NavLink>
@@ -136,18 +137,12 @@ const NavBar = () => {
             >
               <i className={`fas fa-home ${styles.navBarIcons}`}>
 
-              <span className={styles.navBarIconsText}>HOME </span>
+              <span className={styles.navBarIconsText}> HOME </span>
                 
               </i>
              
-    {/* attempts  */}
-{/* <span className={styles.navBarIcons}>
-  <i className="fas fa-home"></i>
-  <span className={styles.navBarText}>Home</span>
-</span> */}
 
 
-{/*  */}
   
              
             </NavLink>

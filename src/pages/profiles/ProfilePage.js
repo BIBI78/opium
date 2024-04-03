@@ -53,6 +53,7 @@ function ProfilePage() {
         }));
         setProfileBeats(profileBeats);
         setHasLoaded(true);
+         console.log("Profile Object:", pageProfile); 
       } catch (err) {
         console.log(err);
       }
@@ -74,18 +75,23 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
+
             <Col xs={3} className="my-2">
+              {/* WHY ISNT THIS LOADING??? */}
               <div>{profile?.beats_count}</div>
-              <div>posts/beats</div>
+              <div>beats</div>
             </Col>
+
             <Col xs={3} className="my-2">
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
+
             <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
+
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
