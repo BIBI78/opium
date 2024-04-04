@@ -5,6 +5,8 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+import signupImage from "../../assets/signup.jpg";
+
 import {
   Form,
   Button,
@@ -131,7 +133,8 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
+          // src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
+           src={signupImage}
         />
       </Col>
     </Row>
