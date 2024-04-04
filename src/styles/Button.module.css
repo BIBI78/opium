@@ -47,18 +47,18 @@
 
 .Black,
 .BlackOutline:hover {
-    background-color:rgb(234, 225, 225);
-    color: black;
+    background-color: #c1c1c5;
+    color:black;
 }
 
 .Black:hover,
 .BlackOutline {
-    background-color: rgb(234, 225, 225);
+    background-color: #c1c1c5;
     color: black;
 }
 
 .Bright {
-    background-color: rgba(248, 243, 243, 0.974);
-    color: black;
-    font-weight: BOLD;
+    background-color: #c1c1c5;
+    color: white;
+    font-weight: bold;
 }

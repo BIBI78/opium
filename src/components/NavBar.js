@@ -31,7 +31,7 @@ const NavBar = () => {
       to="/mybeats/create" 
     >
       <i className={`far fa-file-audio ${styles.navBarIcons}`}>
-          <span className={styles.navBarIconsText}> UPLOAD BEATS</span>
+          <span className={styles.navBarIconsText}> UPLOAD BEATS </span>  
       </i>
     </NavLink>
   );
