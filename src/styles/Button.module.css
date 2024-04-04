@@ -16,7 +16,7 @@
 }
 
 .Button:hover:active {
-    background-color: red !important;
+    background-color: grey !important;
 }
 
 .Button:active {
@@ -41,26 +41,20 @@
 
 .BlueOutline,
 .Blue:hover {
-    /* border: 1px solid #2142b2; */
     background-color: black;
     color: red;
 }
 
 .Black,
 .BlackOutline:hover {
-    /* background-color: #242a3d;
-  color: white; */
-    background-color: #242a3d;
+    background-color:rgb(234, 225, 225);
     color: black;
 }
 
 .Black:hover,
 .BlackOutline {
-    /* background-color: #dadadf;
-  color: #242a3d;
-  border-color: #242a3d; */
-    background-color: red;
-    color: #242a3d;
+    background-color: rgb(234, 225, 225);
+    color: black;
 }
 
 .Bright {

@@ -22,7 +22,7 @@ h5 {
         font-weight: 400;
             font-size: 5.9rem;
             color: red;
-    /* Add your styles here */
+ 
 }
 
 .Comment{
@@ -38,7 +38,7 @@ h5 {
 }
 
 .Heart:hover {
-    /* color: grey; */
+   
     color: blue;
     font-size: 5.9rem;
 }
@@ -55,7 +55,7 @@ h5 {
 }
 
 .Comment:hover {
-    /* color: grey; */
+    
     color: #f85032;
     font-size: 5.9rem;
 }
@@ -76,14 +76,3 @@ h5 {
 }
 
 
-/* 
-far.fa.heart{
-    font-size: 5.9rem;
-    
-} */
-
-
-/* .NavLink:hover {
-    padding: 5px;
-    color: red;
-} */
