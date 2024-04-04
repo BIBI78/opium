@@ -4,7 +4,10 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import Upload from "../../assets/upload.png";
+
+// import Upload from "../../assets/upload.png";
+import UploadMusicImage from "../../assets/newmusictrans.png";
+
 import styles from "../../styles/BeatCreateEditForm.module.css";
 import appStyles from "../../App.module.css"; 
 import btnStyles from "../../styles/Button.module.css";
@@ -153,10 +156,13 @@ const BeatCreateForm = () => {
                   className="d-flex justify-content-center"
                   htmlFor="mp3-upload"
                 >
-                  <Asset
-                    src={Upload}
+                    <Asset
+                    className={` ${appStyles.smallImage}`}
+                    src={UploadMusicImage} 
                     message="Click or tap to upload an MP3 file"
-                  />
+                    
+                    />
+                    
                 </Form.Label>
               )}
               <Form.File

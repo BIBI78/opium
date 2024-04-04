@@ -14,6 +14,7 @@
 .NavLink {
     padding: 5px;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
    
     
 }
@@ -21,7 +22,7 @@
 .Active i {
     color: red;
 }
-/*  */
+
 
 .navBarIcons{
     font-size: medium;
@@ -47,12 +48,7 @@
     
 }
 
-/* attempts
- */
 
-
-
-/*  */
 .navBarIcons:hover{
     color: red;
     padding: 5px;
