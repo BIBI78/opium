@@ -7,20 +7,22 @@
     border: 1px solid #f0f1f9;
     box-sizing: border-box;
     border-radius: 2px;
-    color: #7177a1;
+    color: red;
     text-align: center;
     padding: 10px;
+    font-weight: 400;
 }
 
 .Header {
     font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight : bold;
+    /* font-weight: 1100; */
+    font-size: 25px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #2142b2;
+    color: red;
 }
 
 .Link {
@@ -31,7 +33,7 @@
 }
 
 .Link span {
-    color: #ff9254;
+    color: red;
 }
 
 .Container {
