@@ -45,15 +45,7 @@ const BeatCreateForm = () => {
     });
   };
 
-  // const handleChangeImage = (event) => {
-  //   if (event.target.files.length) {
-  //     URL.revokeObjectURL(image);
-  //     setBeatData({
-  //       ...beatData,
-  //       image: URL.createObjectURL(event.target.files[0]),
-  //     });
-  //   }
-  // };
+
 
   const handleChangeMp3 = (event) => {
     if (event.target.files.length) {
