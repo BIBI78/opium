@@ -21,7 +21,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Beat from "./Beat";
-import Comment from "../comments/Comment";
+
 
 
 
@@ -145,9 +145,10 @@ function BeatEditForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-            {/*  */}
+           
+            <Image className={`${appStyles.musicImage} ${appStyles.smallImage}`}  src={musicImage}  rounded />
 
-           <Form.Group className="text-center">
+            <Form.Group className="text-center">
              
               {mp3 ? (
                 <>
@@ -165,13 +166,12 @@ function BeatEditForm() {
                   className="d-flex justify-content-center"
                   htmlFor="mp3-upload"
                 >
-                    <Asset
+                    {/* <Asset
                     className={` ${appStyles.smallImage}`}
-                      // src={UploadMusicImage} 
-                      src={musicImage} 
+                    src={UploadMusicImage} 
                     message="Click or tap to upload an MP3 file"
                     
-                    />
+                    /> */}
                     
                 </Form.Label>
               )}
@@ -182,13 +182,11 @@ function BeatEditForm() {
                 ref={mp3Input}
               />
             </Form.Group>
- {errors?.title?.map((message, idx) => (
+            {errors?.title?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
             ))}
-           
-
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
