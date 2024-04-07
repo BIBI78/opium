@@ -8,7 +8,7 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
-
+// 
 // NAV BAR NOT ALIGNED 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -72,17 +72,30 @@ const NavBar = () => {
             <span className={styles.navBarIconsText}> SIGN OUT</span>
         </i>
       </NavLink>
-
       <NavLink
+  className={styles.navBarIcons}
+  to={`/profiles/${currentUser?.profile_id}`}
+>
+  <Avatar
+    src={currentUser?.profile_image}
+    text={currentUser?.username} // Accessing username from currentUser
+    height={40}
+  />
+</NavLink>
+
+
+      {/* <NavLink
         className={styles.navBarIcons}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar
           src={currentUser?.profile_image}
-          text="PROFILE" height={40}
+          // text="PROFILE"
+          text={currentUser?.profile_name}
+          height={40}
         />
          
-      </NavLink>
+      </NavLink> */}
     </>
   );
 
