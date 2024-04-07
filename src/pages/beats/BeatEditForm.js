@@ -6,10 +6,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+// eslint-disable-next-line
 import UploadMusicImage from "../../assets/newmusictrans.png";
 
 import musicImage from "../../assets/music.jpg";
 import { Image } from "react-bootstrap";
+// eslint-disable-next-line
 import Asset from "../../components/Asset";
 
 // import Image from "react-bootstrap/Image";
@@ -20,6 +22,7 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+// eslint-disable-next-line
 import Beat from "./Beat";
 
 
