@@ -69,7 +69,7 @@ const NavBar = () => {
       >
         <i className={`fas fa-sign-out-alt ${styles.navBarIcons}`}>
 
-            <span className={styles.navBarIconsText}> SIGN OUT</span>
+            <span className={styles.navBarIconsText}> LOGOUT</span>
         </i>
       </NavLink>
       <NavLink
@@ -83,19 +83,6 @@ const NavBar = () => {
   />
 </NavLink>
 
-
-      {/* <NavLink
-        className={styles.navBarIcons}
-        to={`/profiles/${currentUser?.profile_id}`}
-      >
-        <Avatar
-          src={currentUser?.profile_image}
-          // text="PROFILE"
-          text={currentUser?.profile_name}
-          height={40}
-        />
-         
-      </NavLink> */}
     </>
   );
 
@@ -109,7 +96,7 @@ const NavBar = () => {
   
 
         <i className={`fas fa-sign-in-alt ${styles.navBarIcons}`}>
-            <span className={styles.navBarIconsText}> SIGN IN</span>
+            <span className={styles.navBarIconsText}> LOGIN</span>
         </i>
 
       </NavLink>

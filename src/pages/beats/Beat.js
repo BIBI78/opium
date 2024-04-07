@@ -474,7 +474,7 @@ const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
                   size={25}
                 // style={{ color: "#00ff00" }}
                 // COME BACK HERE
-                fillColor="yellow"
+                fillColor="#ffd54f"
                 />
                 {averageRating.toFixed(1)}
               </>
