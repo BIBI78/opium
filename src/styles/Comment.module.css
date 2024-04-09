@@ -2,9 +2,11 @@
     font-weight: bold;
     color:red;
     margin-right: 8px;
+    font-family: 'Noto Sans Sharada', sans-serif;
 }
 
 .Date {
     font-weight: lighter;
     color: #c1c1c5;
+    font-family: 'Noto Sans Sharada', sans-serif;
 }

@@ -11,6 +11,7 @@
     text-align: center;
     padding: 10px;
     font-weight: 400;
+    font-family: 'Noto Sans Sharada', sans-serif;
 }
 
 .Header {
@@ -30,6 +31,7 @@
     text-align: center;
     display: block;
     margin: auto;
+    font-family: 'Noto Sans Sharada', sans-serif;
 }
 
 .Link span {

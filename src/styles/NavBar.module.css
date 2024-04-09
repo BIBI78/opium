@@ -3,17 +3,19 @@
     border: 1px solid #dadadf;
     font-weight: 400;
     /* font-family: 'Times New Roman', Times, serif; */
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Kanit', sans-serif; */
+    font-family: 'Archivo Black', sans-serif;
     display: flex;
     align-items: center;
 }
 .navBarIconsText {
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Archivo Black', sans-serif;
 }
 
 .NavLink {
     padding: 5px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Archivo Black', sans-serif;
     font-weight: 400;
    
     
@@ -35,14 +37,13 @@
 }
 .navBarIcons:hover .navBarText {
     color: red;
-    font-family: 'Montserrat', sans-serif;
-    
+    font-family: 'Archivo Black', sans-serif;
 }
 
 
 .navBarIconsText{
     font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Archivo Black', sans-serif;
     display: flex;
     align-items: center;
     

@@ -8,7 +8,8 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
-// 
+
+
 // NAV BAR NOT ALIGNED 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -150,7 +151,8 @@ const NavBar = () => {
 
              
             </NavLink>
-               <NavLink 
+
+      <NavLink 
         to="/about" 
         className={styles.NavLink} 
         activeClassName={styles.Active}
@@ -159,17 +161,7 @@ const NavBar = () => {
            <span className={styles.navBarIconsText}> ABOUT</span>
         </i>
       </NavLink>
-                {/* <NavLink
-              to="/about"
-              className={styles.navBarIcons}
-              activeClassName={styles.Active}
-              // aria-label="about page"
-              rel="noreferrer"
-            >
-              <i className="fa-solid fa-book-open" />
-              {' '}
-              ABOUT
-            </NavLink> */}
+          
 
             {currentUser ? loggedInIcons : loggedOutIcons}
             

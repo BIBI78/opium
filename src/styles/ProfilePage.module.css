@@ -1,3 +1,6 @@
+.Profile{
+    font-family: 'Noto Sans Sharada', sans-serif;
+}
 .ProfileImage {
     object-fit: cover;
     height: 120px;

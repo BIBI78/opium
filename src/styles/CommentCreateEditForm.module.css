@@ -1,6 +1,7 @@
 .Form {
     border: none;
     border-bottom: 2px grey solid;
+    font-family: 'Noto Sans Sharada', sans-serif;
 }
 
 .Button {
@@ -11,10 +12,12 @@
     padding: 4px 10px;
     min-width: 75px;
     margin: 5px;
+    font-family: 'Noto Sans Sharada', sans-serif;
 }
 
 .Button:hover {
     cursor: pointer;
     background-color: red;
     color:black;
+    font-family: 'Noto Sans Sharada', sans-serif;
 }
