@@ -148,11 +148,31 @@ const NavBar = () => {
               </i>
              
 
-
-  
              
             </NavLink>
+               <NavLink 
+        to="/about" 
+        className={styles.NavLink} 
+        activeClassName={styles.Active}
+      >
+        <i className={`fa-solid fa-book-open ${styles.navBarIcons}`}>
+           <span className={styles.navBarIconsText}> ABOUT</span>
+        </i>
+      </NavLink>
+                {/* <NavLink
+              to="/about"
+              className={styles.navBarIcons}
+              activeClassName={styles.Active}
+              // aria-label="about page"
+              rel="noreferrer"
+            >
+              <i className="fa-solid fa-book-open" />
+              {' '}
+              ABOUT
+            </NavLink> */}
+
             {currentUser ? loggedInIcons : loggedOutIcons}
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

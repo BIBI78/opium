@@ -79,7 +79,7 @@ const BeatCreateForm = () => {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Track title</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -93,7 +93,7 @@ const BeatCreateForm = () => {
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Info</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}

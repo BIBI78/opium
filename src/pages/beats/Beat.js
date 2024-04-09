@@ -13,6 +13,8 @@ import { Rating } from "react-simple-star-rating";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import feedbackStyles from "../../styles/FeedbackButtons.module.css";
 
+// import WaveSurfer from 'wavesurfer.js';
+
 
 
 

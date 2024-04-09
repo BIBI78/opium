@@ -19,6 +19,8 @@ import BeatCreateForm from "./pages/beats/BeatCreateForm";
 import BeatPage from "./pages/beats/BeatPage";
 import BeatsPage from "./pages/beats/BeatsPage";
 import BeatEditForm from "./pages/beats/BeatEditForm";
+import About from './pages/About';
+
 
 function App() {
   const currentUser = useCurrentUser();
@@ -84,6 +86,7 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
+          <Route exact path="/about" render={() => <About />} />
 
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
