@@ -47,30 +47,31 @@ The live link for "The Red Crayon" can be found [HERE](https://project5-red-cray
 ## UX
 
 ### Site Purpose:
-To bring interactivity to the art community by sharing the latest news, events, and feedback from other artists & users.
+Opium is a simple music sharing app. The purpose is to share music with your peers wherever you are and get feedback.
 
 ### Site Goal:
-The Red Crayon is intended to keep the community informed about the ongoings in the art-world, and to share inspiration & events with each other, as well as bring people together.
+The goal of Opium is tpo get people to share beats and give feedback and make connections. 
 
 ### Audience:
-Everyone with an interest in Art, and the desire to reach out & connect with like-minded individuals.
+Everyone who enjoys sharing music.
 
 ### Communication:
-The layout is intended to represent a news tabloid, whilst at the same time having a playful, interactive feel to it. With the navigation panel being present at all times, the users can quickly navigate through the site to arrive at their intended destination.
+The layout is straightforward: The main content ( the music ) is the center piece. Navigation is at the top and everything else is kept to the side.
 
 ### Current User Goals:
-To keep users coming back again & again to see what is new in terms of news & events, as well as to follow up with other users that they follow.
+The goal is to build a new community that is all about sharing/making/talking about music.
 
 ### New User Goals:
-To engage the user in a meaningful way, and encourage them to explore everything that the site has to offer.
+The user shouldnt be mindlessly scrolling but listeing to all the beats and reacting.
 
 ### Future Goals:
-- To provide different types of user accounts, so that access is restricted for who may publish specific types of content, such as news articles & events.
-- Provide the ability for users to send private messages to either another user, or a group of users.
-- To expand the events section & provide a google maps location for each event, so that users may understand in more detail where an even is to be hosted.
+- Provide more ways for the user to intereact with the app: For example remixing a beat in the app or rapping on the beat and uploading it the comments.
+- Create a messaging feature.
+- Create a way for user to sell beats and services. 
+  
 
 ## User Stories
-I have included links to the [GitHub Issues](https://github.com/CluelessBiker/project5-red-crayon/issues) for this project, as well as the [KANBAN board](https://github.com/users/CluelessBiker/projects/2).
+Here are the links to the [GitHub Issues](https://github.com/CluelessBiker/project5-red-crayon/issues) for this project, as well as the [KANBAN board](https://github.com/users/CluelessBiker/projects/2).
 
 Please also find a full list of the Epics, User stories, & story points typed up [HERE](src/assets/userstories.md).
 
