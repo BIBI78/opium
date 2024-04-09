@@ -103,8 +103,9 @@ Please also find a full list of the Epics, User stories, & story points typed up
 
 ### Typography:
 All fonts were obtained from the Google Fonts library. I chose the following fonts for the page:
-1. Zilla Slab Highlight : Site header
-2. Nixie One : Site content
+1. Noto, for the majority of the site 
+2. Archivo Black for the Navbar
+3. Kanit , but rarely.
 
 ## Features
 
