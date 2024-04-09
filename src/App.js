@@ -20,11 +20,26 @@ import BeatPage from "./pages/beats/BeatPage";
 import BeatsPage from "./pages/beats/BeatsPage";
 import BeatEditForm from "./pages/beats/BeatEditForm";
 import About from './pages/About';
+// URL ICON
+import React, { useEffect } from "react";
+import logo from "./assets/logo.png";
+
+
 
 
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+   useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "logo";
+    link.href = logo;
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
 
   return (
     <div className={styles.App}>

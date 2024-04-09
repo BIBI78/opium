@@ -20,10 +20,11 @@ function About() {
       </p>
       <p>
         Sign up , create a profile and start uploading 30 second mp3s.
-        Like most social media , you follow your favorite users, like and comment on posts and delete and dissapear.
+        Like most social media , you follow your favorite users, like and comment on posts and delete and dissapear if you are over it.
         You also have the possiblities of quickily giving feedback with the feeback buttons we've provided.
-        If the beat is TRASH let em know,
-        If the beat is COLD let em know etc. 
+        If the beat is TRASH let em know.
+        If the beat is COLD let em know
+        Etc.
         You also have the option to rate with a 5-star scale.
         
       </p>
