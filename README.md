@@ -65,7 +65,7 @@ The goal is to build a new community that is all about sharing/making/talking ab
 The user shouldnt be mindlessly scrolling but listeing to all the beats and reacting.
 
 ### Future Goals:
-- Provide more ways for the user to intereact with the app: For example remixing a beat in the app or rapping on the beat and uploading it the comments.
+- Provide more ways for the user to intereact with the app: For example remixing a beat in the app or rapping on the beat and uploading it in the comments.
 - Create a messaging feature.
 - Create a way for user to sell beats and services. 
   
@@ -95,8 +95,7 @@ Please also find a full list of the Epics, User stories, & story points typed up
 
 ![Site Navigation](src/assets/images-readme/readme-wireframe-sitenav.png)
 
-### Database Schema:
-This has been uploaded to the Backend README, which can be found [HERE](https://github.com/CluelessBiker/project5-drf-api).
+
 
 ### Colour Scheme:
 
