@@ -10,29 +10,26 @@ function About() {
        <img src={logo00} alt="logo" height="45" />
       </h2>
       <hr />
-       {/* <p>
-      Welcome to Opium 
-      </p> */}
+   
       <p>
       Upload 30 second snippets of your own beats and share them with the community 
       </p>
       <p>
         Opium just wants to make it simple for producers, rappers and fans of music to cut through the nonsense of social media 
-        and get to straight to the music.
+        and get to straight to the <strong>MUSIC</strong>.
       </p>
       <p>
-        Sign up , create a profile and start uploading mp3s.
-        Like most social media , you follow your favorite users, like and comment on posts.
-        You also have the possiblities of quickily giving feedback with the feeback buttons we've provided. If the beat is TRASH let em know,
-        If the beat is COLD let em know. Etc 
-        Also yoou can leave a star rating out of 5.
-
+        Sign up , create a profile and start uploading 30 second mp3s.
+        Like most social media , you follow your favorite users, like and comment on posts and delete and dissapear.
+        You also have the possiblities of quickily giving feedback with the feeback buttons we've provided.
+        If the beat is TRASH let em know,
+        If the beat is COLD let em know etc. 
+        You also have the option to rate with a 5-star scale.
+        
       </p>
       
       <br />
-      {/* <h2>
-        <strong>Social Media:</strong>
-      </h2> */}
+    
       <hr />
       <Row className={styles.SocialIconsAlign}>
         <a
@@ -91,9 +88,10 @@ function About() {
       </Row>
       <br />
       <p id={styles.Disclaimer}>
-        Paris, France
+
+       <strong> Paris, France</strong>
         <br />
-        Free Young Thug.
+      <strong>Free Young Thug</strong>  
       </p>
     </Container>
   );
