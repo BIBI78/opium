@@ -9,14 +9,11 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 
-
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const history = useHistory();
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
-
-
 
   const handleSignOut = async () => {
     try {
@@ -29,9 +26,6 @@ const NavBar = () => {
       console.log(err);
     }
   };
-
-
-
 
   const addBeatIcon = (
     <NavLink
@@ -47,6 +41,16 @@ const NavBar = () => {
   
   const loggedInIcons = (
     <>
+      <NavLink
+                exact
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/"
+              >
+                <i className={`fas fa-home ${styles.navBarIcons}`}>
+                  <span className={styles.navBarIconsText}> HOME </span>
+                </i>
+              </NavLink>
       <NavLink
         className={styles.navBarIcons}
         activeClassName={styles.Active}
@@ -127,7 +131,7 @@ const NavBar = () => {
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
-        {currentUser && addBeatIcon} 
+        {currentUser && currentUser.profile_id && addBeatIcon} 
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
@@ -135,28 +139,16 @@ const NavBar = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            {!currentUser ? (
-              <NavLink 
-                to="/about" 
-                className={styles.NavLink} 
-                activeClassName={styles.Active}
-              >
-                <i className={`fa-solid fa-book-open ${styles.navBarIcons}`}>
-                  <span className={styles.navBarIconsText}> ABOUT</span>
-                </i>
-              </NavLink>
-            ) : (
-              <NavLink
-                exact
-                className={styles.NavLink}
-                activeClassName={styles.Active}
-                to="/"
-              >
-                <i className={`fas fa-home ${styles.navBarIcons}`}>
-                  <span className={styles.navBarIconsText}> HOME </span>
-                </i>
-              </NavLink>
-            )}
+            <NavLink 
+              to="/about" 
+              className={styles.NavLink} 
+              activeClassName={styles.Active}
+            >
+              <i className={`fa-solid fa-book-open ${styles.navBarIcons}`}>
+                <span className={styles.navBarIconsText}> ABOUT</span>
+              </i>
+            </NavLink>
+            
 
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
@@ -167,4 +159,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
