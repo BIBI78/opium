@@ -432,6 +432,7 @@ const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
         <Card.Body>
           {title && <Card.Title className="text-center">{title}</Card.Title>}
           {content && <Card.Text>{content}</Card.Text>}
+          {/* NEED TO EDIT THIS FOPR IPHONE */}
           <div className={styles.beatBar}>
             {is_owner ? (
               <OverlayTrigger

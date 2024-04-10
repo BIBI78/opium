@@ -79,3 +79,10 @@ h5 {
 }
 
 
+
+@media only screen and (max-width: 768px) {
+    .beatBar {
+        font-size: 4rem;
+        /* Adjust font size for smaller screens */
+    }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import styles from '../styles/About.module.css';
 import logo00 from "../assets/00logo.jpg";
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function About() {
   return (
@@ -28,6 +29,11 @@ function About() {
         You also have the option to rate with a 5-star scale.
         
       </p>
+   <p id={styles.Disclaimer}>
+        <Link to="/signup">sign up </Link> 
+        <Link to="/signin">login</Link>
+</p>
+
       
       <br />
     
