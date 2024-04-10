@@ -86,7 +86,10 @@ function BeatRatingForm(props) {
 
   return (
     <>
-      <div className="text-center">Rate This Beat Vamp </div>
+      {/* <div className="text-center rateBeat">Rate This Beat </div> */}
+<div className="text-center rateBeat" style={{ fontFamily: 'Noto Sans Sharada',  color: 'grey' }}>Rate This Beat</div>
+
+
       <Form className="mt-2 pb-4" onSubmit={handleRatingSubmit}>
         <div className="text-center p-1 mb-1">
           <Rating onClick={handleRating} />
@@ -104,7 +107,7 @@ function BeatRatingForm(props) {
         </Modal.Header>
         <Modal.Body>
           <p className={styles.Psuccess}>
-            Thank you, your rating has been registered.
+            Thanks for the feedback.
           </p>
         </Modal.Body>
         <Modal.Footer>
@@ -133,7 +136,7 @@ function BeatRatingForm(props) {
           <Modal.Title>Rating</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p> Na it dont work like that , cant rate your own shit.</p>
+          <p> Na it dont work like that , cant rate your own music.</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setOwnerRateModal(false)}>

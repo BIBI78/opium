@@ -7,8 +7,9 @@
     margin-left: 2px;
     margin-right: 2px;
     min-width: 75px;
+    font-family: 'Noto Sans Sharada', sans-serif;
     /* font-family: 'Archivo Black', sans-serif; */
-    font-family: 'Montserrat', sans-serif;
+  
 }
 
 .Button:hover {
@@ -63,4 +64,9 @@
     background-color: #c1c1c5;
     color: white;
     font-weight: bold;
+}
+
+.rateBeat {
+    font-family: 'Noto Sans Sharada', sans-serif;
+
 }

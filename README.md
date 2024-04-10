@@ -109,7 +109,7 @@ Please also find a full list of the Epics, User stories, & story points typed up
 
 ### Colour Scheme:
 
-![Colour Palette](src/assets/images-readme/readme-colourpalette.png)
+![Colour Palette](src/assets/readme/palette.png)
 
 ### Typography:
 
@@ -137,15 +137,17 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 #### About Page:
 
-![About Page](src/assets/images-readme/readme-about.png)
+![About Page](src/assets/readme/about.png)
 
-#### Articles Page:
+#### Feedback form (buttons):
 
-![Articles Page](src/assets/images-readme/readme-articles.png)
+![Feedback buttons (fire)](src/assets/readme/firefeedback.png)
+![Feedback buttons (trash) ](src/assets/readme/trashfeedback.png)
 
-#### Submission Form:
+#### Star Rating :
 
-![Submission Form](src/assets/images-readme/readme-forms.png)
+![Star Rating ](src/assets/readme/rating_form.png)
+![Star Rating 2 ](src/assets/readme/rating_form_2.png)
 
 #### 404 Page Not Found:
 
