@@ -151,7 +151,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 #### 404 Page Not Found:
 
-![404 Page Not Found](src/assets/images-readme/readme-notfound.png)
+![404 Page Not Found](src/assets/readme/404.png)
 
 #### Popular Profiles:
 
@@ -159,32 +159,33 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 #### Social Links:
 
-![Social Links](src/assets/images-readme/readme-sociallinks.png)
+###### \*at the bottm of the about page
+
+![Social Links](src/assets/readme/sociallinks.png)
 
 #### Log in, Log out & Sign up:
 
 ##### Login:
 
-![Login](src/assets/images-readme/readme-login.png)
+![Login](src/assets/readme/login.png)
 
 ##### Logout:
 
-![Logout](src/assets/images-readme/readme-logout.png)
+![Logout](src/assets/readme/logout.png)
 
 ##### Sign-up:
 
-![Sign-up](src/assets/images-readme/readme-signup.png)
+![Sign-up](src/assets/readme/signup.png)
 
 ### Features Left to Implement:
 
-- The ability to like articles & events.
-- The ability to leave comments on articles & events
-- Notifications when a user receives a new follower, comment, or like.
-- Email notification when a new Article has been published to the site.
-- Private messaging between users.
-- Group messaging between users.
-- Restrict profile & posts views to only an approved list of users, should a user wish.
-- A contact form so that users can provide feedback.
+- In app remixing ( I want the user to be able to slow down speed up beats and add vocals)
+- The ability see  the best and worst beats ( beats with the most postive/negative feedback)
+- In app bidding( users should be able to sell beats to other users)
+- Notifications ( typical app notifcations ,new follwoer , new like , new comment etc, favorite users new posts).
+- Some sort of private messaging , direct messages,maybe even group chats.
+- Music wave when the beat starts playing .
+
 
 ## Testing
 
