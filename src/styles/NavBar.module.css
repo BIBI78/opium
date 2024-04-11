@@ -2,28 +2,31 @@
     background-color: #ffffff;
     border: 1px solid #dadadf;
     font-weight: 400;
-    /* font-family: 'Times New Roman', Times, serif; */
-    /* font-family: 'Kanit', sans-serif; */
     font-family: 'Archivo Black', sans-serif;
     display: flex;
     align-items: center;
 }
-.navBarIconsText {
-    /* font-family: 'Montserrat', sans-serif; */
-    font-family: 'Archivo Black', sans-serif;
-}
 
+
+/* PROBLEM ON SMALLER SCREENS , not aligned  */
 .NavLink {
     padding: 5px;
     font-family: 'Archivo Black', sans-serif;
     font-weight: 400;
-   
-    
+  
 }
+
+
+
+
+
+
 
 .Active i {
     color: red;
 }
+
+
 
 
 .navBarIcons{

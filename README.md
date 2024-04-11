@@ -125,15 +125,16 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 #### Header:
 
-![Header](src/assets/images-readme/readme-header.png)
+![Header](src/assets/readme/header.png)
 
 ##### Navigation - Desktop:
 
-![Navbar desktop](src/assets/images-readme/readme-navigation-desktop.png)
+![Navbar desktop](src/assets/readme/navigation-desktop.png)
 
 ##### Navigation - Mobile:
 
-![Navbar mobile](src/assets/images-readme/readme-navigation-tablet-mobile.png)
+![Navbar mobile](src/assets/readme/navigation-iphone1.png)
+![Navbar mobile](src/assets/readme/navigation-iphone2.png)
 
 #### About Page:
 
@@ -180,20 +181,21 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ### Features Left to Implement:
 
 - In app remixing ( I want the user to be able to slow down speed up beats and add vocals)
-- The ability see  the best and worst beats ( beats with the most postive/negative feedback)
+- The ability see the best and worst beats ( beats with the most postive/negative feedback)
 - In app bidding( users should be able to sell beats to other users)
 - Notifications ( typical app notifcations ,new follwoer , new like , new comment etc, favorite users new posts).
 - Some sort of private messaging , direct messages,maybe even group chats.
 - Music wave when the beat starts playing .
-
+- Longer MP3 uploads
 
 ## Testing
 
 ### Manual Testing:
+##### * There was an incredible amount of testing and this revealed several problems
 
-1. SignUpForm gives 400 error:
+1. Mpr3 upload :
 
-- Resolved by changing `password` to `password1` in form fields & variable keys.
+- Resolved by rewriting the whole.
 
 2. 500 server error:
 
