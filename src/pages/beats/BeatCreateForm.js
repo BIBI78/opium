@@ -67,6 +67,7 @@ const BeatCreateForm = () => {
 
     try {
       const { data } = await axios.post("/beats/", formData);
+      console.log(data)
       history.push(`/beats/${data.id}`);
     } catch (err) {
       console.log(err);

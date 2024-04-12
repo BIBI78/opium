@@ -30,7 +30,7 @@ const ProfileEditForm = () => {
     content: "",
     image: "",
   });
-  const { name, content, image } = profileData;
+  let { name, content, image } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -112,6 +112,12 @@ const ProfileEditForm = () => {
       </Button>
     </>
   );
+
+  if (image) {
+    if (image.includes("default") && image.includes("/v1")) {
+      image = image.replace("/v1/", "/v1712922538/")
+    }
+  }
 
   return (
     <Form onSubmit={handleSubmit}>

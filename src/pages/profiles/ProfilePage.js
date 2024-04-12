@@ -25,6 +25,7 @@ import Beat from "../beats/Beat";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import defaultProfileImage from "../../assets/defaultpic.jpg";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -53,13 +54,19 @@ function ProfilePage() {
         }));
         setProfileBeats(profileBeats);
         setHasLoaded(true);
-         console.log("Profile Object:", pageProfile); 
+        console.log("Profile Object:", pageProfile);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
   }, [id, setProfileData]);
+
+  if (profile?.image) {
+    if (profile.image.includes("default") && profile.image.includes("/v1")) {
+      profile.image = profile.image.replace("/v1/", "/v1712922538/")
+    }
+  }
 
   const mainProfile = (
     <>
@@ -69,7 +76,8 @@ function ProfilePage() {
           <Image
             className={styles.ProfileImage}
             roundedCircle
-            src={profile?.image}
+            // src={profile?.image}
+            src={profile?.image || defaultProfileImage}
           />
         </Col>
         <Col lg={6}>
@@ -77,7 +85,7 @@ function ProfilePage() {
           <Row className="justify-content-center no-gutters">
 
             <Col xs={3} className="my-2">
-              {/* WHY ISNT THIS LOADING??? */}
+
               <div>{profile?.beats_count}</div>
               <div>beats</div>
             </Col>

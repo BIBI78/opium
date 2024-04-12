@@ -1,6 +1,4 @@
-// src/components/Beat.js
-
-import React, { useEffect, useState,  useRef } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Beat.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -12,14 +10,6 @@ import star from "../../styles/Star.module.css";
 import { Rating } from "react-simple-star-rating";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import feedbackStyles from "../../styles/FeedbackButtons.module.css";
-
-// import WaveSurfer from 'wavesurfer.js';
-import WaveSurfer from 'wavesurfer.js';
-
-
-
-
-
 
 const Beat = (props) => {
   const {
@@ -52,18 +42,46 @@ const Beat = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
-  // wavesurfer attempt 
-  const waveSurferRef = useRef(null);
 
   const [averageRating, setAverageRating] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [{ data: ratingsData }] = await Promise.all([
+          axiosReq.get(`/rating/`),
+        ]);
+
+        const ratingsForBeat = ratingsData.results.filter(
+          (rating) => rating.beat === parseInt(id)
+        );
+        const totalRatings = ratingsForBeat.reduce(
+          (acc, rating) => acc + rating.rating,
+          0
+        );
+        const averageRating = ratingsForBeat.length
+          ? totalRatings / ratingsForBeat.length
+          : 0;
+
+        setAverageRating(averageRating);
+        setHasLoaded(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    setHasLoaded(false);
+    const timer = setTimeout(() => {
+      fetchData();
+    }, [id]);
+
+    return () => clearTimeout(timer);
+  }, [id]);
+
   const handleEdit = () => {
     history.push(`/beats/${id}/edit`);
   };
-
-  // wavesurfer bs 
-  
 
   const handleDelete = async () => {
     try {
@@ -73,8 +91,9 @@ const Beat = (props) => {
       console.log(err);
     }
   };
-  // fire feedback button 
-    const handleFireFeedbackLike = async () => {
+
+  // Fire Feedback Button
+  const handleFireFeedbackLike = async () => {
     try {
       const { data } = await axiosReq.post("/feedback/fire/", { beat: id });
       setBeats((prevBeats) => ({
@@ -89,7 +108,6 @@ const Beat = (props) => {
       console.log("Error submitting FIRE feedback:", err);
     }
   };
- 
 
   const handleFireFeedbackUnlike = async () => {
     try {
@@ -107,9 +125,7 @@ const Beat = (props) => {
     }
   };
 
-
-  // cold feedback button
-  
+  // Cold Feedback Button
   const handleColdFeedbackLike = async () => {
     try {
       const { data } = await axiosReq.post("/feedback/cold/", { beat: id });
@@ -142,8 +158,7 @@ const Beat = (props) => {
     }
   };
 
-  // hard feedback button
-
+  // Hard Feedback Button
   const handleHardFeedbackLike = async () => {
     try {
       const { data } = await axiosReq.post("/feedback/hard/", { beat: id });
@@ -172,389 +187,337 @@ const Beat = (props) => {
         ),
       }));
     } catch (err) {
-      console.log("Error undoing HARD feedback:", err);      
+      console.log("Error undoing HARD feedback:", err);
     }
   };
-  // 
-  // trash button 1
+
+  // Trash Feedback Button
   const handleTrashFeedbackLike = async () => {
-  try {
-    const { data } = await axiosReq.post("/feedback/trash/", { beat: id });
-    setBeats((prevBeats) => ({
-      ...prevBeats,
-      results: prevBeats.results.map((beatItem) =>
-        beatItem.id === id
-          ? { ...beatItem, trash_count: beatItem.trash_count + 1, trash_id: data.id }
-          : beatItem
-      ),
-    }));
-  } catch (err) {
-    console.log("Error submitting TRASH feedback:", err);
-  }
-};
+    try {
+      const { data } = await axiosReq.post("/feedback/trash/", { beat: id });
+      setBeats((prevBeats) => ({
+        ...prevBeats,
+        results: prevBeats.results.map((beatItem) =>
+          beatItem.id === id
+            ? { ...beatItem, trash_count: beatItem.trash_count + 1, trash_id: data.id }
+            : beatItem
+        ),
+      }));
+    } catch (err) {
+      console.log("Error submitting TRASH feedback:", err);
+    }
+  };
 
-const handleTrashFeedbackUnlike = async () => {
-  try {
-    await axiosRes.delete(`/feedback/trash/${trash_id}/`);
-    setBeats((prevBeats) => ({
-      ...prevBeats,
-      results: prevBeats.results.map((beatItem) =>
-        beatItem.id === id
-          ? { ...beatItem, trash_count: beatItem.trash_count - 1, trash_id: null }
-          : beatItem
-      ),
-    }));
-  } catch (err) {
-    console.log("Error undoing TRASH feedback:", err);
-  }
-};
-  
-  // loop button 1
+  const handleTrashFeedbackUnlike = async () => {
+    try {
+      await axiosRes.delete(`/feedback/trash/${trash_id}/`);
+      setBeats((prevBeats) => ({
+        ...prevBeats,
+        results: prevBeats.results.map((beatItem) =>
+          beatItem.id === id
+            ? { ...beatItem, trash_count: beatItem.trash_count - 1, trash_id: null }
+            : beatItem
+        ),
+      }));
+    } catch (err) {
+      console.log("Error undoing TRASH feedback:", err);
+    }
+  };
+
+  // Loop Feedback Button
   const handleLoopFeedbackLike = async () => {
-  try {
-    const { data } = await axiosReq.post("/feedback/loop/", { beat: id });
-    setBeats((prevBeats) => ({
-      ...prevBeats,
-      results: prevBeats.results.map((beatItem) =>
-        beatItem.id === id
-          ? { ...beatItem, loop_count: beatItem.loop_count + 1, loop_id: data.id }
-          : beatItem
-      ),
-    }));
-  } catch (err) {
-    console.log("Error submitting LOOP feedback:", err);
-  }
-};
+    try {
+      const { data } = await axiosReq.post("/feedback/loop/", { beat: id });
+      setBeats((prevBeats) => ({
+        ...prevBeats,
+        results: prevBeats.results.map((beatItem) =>
+          beatItem.id === id
+            ? { ...beatItem, loop_count: beatItem.loop_count + 1, loop_id: data.id }
+            : beatItem
+        ),
+      }));
+    } catch (err) {
+      console.log("Error submitting LOOP feedback:", err);
+    }
+  };
 
-const handleLoopFeedbackUnlike = async () => {
-  try {
-    await axiosRes.delete(`/feedback/loop/${loop_id}/`);
-    setBeats((prevBeats) => ({
-      ...prevBeats,
-      results: prevBeats.results.map((beatItem) =>
-        beatItem.id === id
-          ? { ...beatItem, loop_count: beatItem.loop_count - 1, loop_id: null }
-          : beatItem
-      ),
-    }));
-  } catch (err) {
-    console.log("Error undoing LOOP feedback:", err);
-  }
-};
-  //
+  const handleLoopFeedbackUnlike = async () => {
+    try {
+      await axiosRes.delete(`/feedback/loop/${loop_id}/`);
+      setBeats((prevBeats) => ({
+        ...prevBeats,
+        results: prevBeats.results.map((beatItem) =>
+          beatItem.id === id
+            ? { ...beatItem, loop_count: beatItem.loop_count - 1, loop_id: null }
+            : beatItem
+        ),
+      }));
+    } catch (err) {
+      console.log("Error undoing LOOP feedback:", err);
+    }
+  };
 
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { beat: id });
+      setBeats((prevBeats) => ({
+        ...prevBeats,
+        results: prevBeats.results.map((beat) =>
+          beat.id === id
+            ? { ...beat, likes_count: beat.likes_count + 1, like_id: data.id }
+            : beat
+        ),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}/`);
+      setBeats((prevBeats) => ({
+        ...prevBeats,
+        results: prevBeats.results.map((beat) =>
+          beat.id === id
+            ? { ...beat, likes_count: beat.likes_count - 1, like_id: null }
+            : beat
+        ),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-
-    const handleLike = async () => {
-      try {
-        const { data } = await axiosRes.post("/likes/", { beat: id });
-        setBeats((prevBeats) => ({
-          ...prevBeats,
-          results: prevBeats.results.map((beat) => {
-            return beat.id === id
-              ? { ...beat, likes_count: beat.likes_count + 1, like_id: data.id }
-              : beat;
-          }),
-        }));
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    const handleUnlike = async () => {
-      try {
-        await axiosRes.delete(`/likes/${like_id}/`);
-        setBeats((prevBeats) => ({
-          ...prevBeats,
-          results: prevBeats.results.map((beat) => {
-            return beat.id === id
-              ? { ...beat, likes_count: beat.likes_count - 1, like_id: null }
-              : beat;
-          }),
-        }));
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
- useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Fetch rating data
-        const [{ data: ratingsData }] = await Promise.all([
-          axiosReq.get(`/rating/`),
-        ]);
-
-        // Filter ratings for the current beat
-        const ratingsForBeat = ratingsData.results.filter(
-          (rating) => rating.beat === parseInt(id)
-        );
-
-        // Calculate average rating
-        const totalRatings = ratingsForBeat.reduce(
-          (acc, rating) => acc + rating.rating,
-          0
-        );
-        const averageRating = ratingsForBeat.length
-          ? totalRatings / ratingsForBeat.length
-          : 0;
-
-        // Update state
-        setAverageRating(averageRating);
-        setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    // Call fetchData when the component mounts or when the id changes
-    setHasLoaded(false);
-    fetchData();
-
-    // Initialize WaveSurfer when the component mounts
-    const waveSurfer = WaveSurfer.create({
-      container: waveSurferRef.current,
-      waveColor: 'grey',
-      progressColor: 'red',
-      height: 100,
-    });
-    waveSurfer.load(mp3_url); // Load the audio file
-
-    // Cleanup function
-    return () => {
-      waveSurfer.destroy(); // Destroy WaveSurfer instance when the component unmounts
-    };
-  }, [id, mp3_url]);
-
-
-  
-  // fire button 2
-const FireFeedbackButton = ({ className, beat, fire_id, fire_count }) => {
-  return (
-   
-       <div className={styles.FireFeedbackButton} >
-      {fire_id ? (
-        <span onClick={handleFireFeedbackUnlike}>
-          <i className={`fas fa-fire ${feedbackStyles.fireIcon}`} />
-        </span>
-      ) : (
-        <span onClick={handleFireFeedbackLike}>
-          <i className={`fas fa-fire ${feedbackStyles.fireIcon}`} />
-        </span>
-      )}
-      <span>{fire_count}</span>
-    </div>
-  );
-};
-
-  // cold feedback button 2
-  const ColdFeedbackButton = ({ className,beat, cold_id, cold_count }) => {
+  const FireFeedbackButton = ({ className, beat, fire_id, fire_count }) => {
     return (
-    <div className={styles.ColdFeedbackButton} >
+      <div className={styles.FireFeedbackButton}>
+        {fire_id ? (
+          <span onClick={handleFireFeedbackUnlike}>
+            <i className={`fas fa-fire ${feedbackStyles.fireIcon}`} />
+          </span>
+        ) : (
+          <span onClick={handleFireFeedbackLike}>
+            <i className={`fas fa-fire ${feedbackStyles.fireIcon}`} />
+          </span>
+        )}
+        <span>{fire_count}</span>
+      </div>
+    );
+  };
 
+  const ColdFeedbackButton = ({ className, beat, cold_id, cold_count }) => {
+    return (
+      <div className={styles.ColdFeedbackButton}>
         {cold_id ? (
           <span onClick={handleColdFeedbackUnlike}>
             <i className={`far fa-snowflake ${feedbackStyles.coldIcon}`} />
           </span>
         ) : (
-        
           <span onClick={handleColdFeedbackLike}>
-             <i className={`far fa-snowflake ${feedbackStyles.coldIcon}`} />
-            </span>
-            
+            <i className={`far fa-snowflake ${feedbackStyles.coldIcon}`} />
+          </span>
         )}
         <span>{cold_count}</span>
       </div>
     );
   };
-  // Hard button part 2
-  const HardFeedbackButton = ({ className,beat, hard_id, hard_count }) => {
+
+  const HardFeedbackButton = ({ className, beat, hard_id, hard_count }) => {
     return (
       <div className={styles.HardFeedbackButton}>
         {hard_id ? (
           <span onClick={handleHardFeedbackUnlike}>
-           <i className={`fas fa-gavel ${feedbackStyles.hardIcon}`} />
-
+            <i className={`fas fa-gavel ${feedbackStyles.hardIcon}`} />
           </span>
         ) : (
-        
           <span onClick={handleHardFeedbackLike}>
             <i className={`fas fa-gavel ${feedbackStyles.hardIcon}`} />
-            </span>
-            
+          </span>
         )}
         <span>{hard_count}</span>
       </div>
     );
   };
-  // trash button 2 
+
   const TrashFeedbackButton = ({ className, beat, trash_id, trash_count }) => {
-  return (
-    <div className={styles.TrashFeedbackButton}>
-      {trash_id ? (
-        <span onClick={handleTrashFeedbackUnlike}>
-          <i className={`fas fa-trash ${feedbackStyles.trashIcon}`} />
-        </span>
-      ) : (
-        <span onClick={handleTrashFeedbackLike}>
-          <i className={`fas fa-trash ${feedbackStyles.trashIcon}`} />
-        </span>
-      )}
-      <span>{trash_count}</span>
-    </div>
-  );
-  };
-  // loop button 2
-const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
-  return (
-    <div className={styles.LoopFeedbackButton}>
-      {loop_id ? (
-        <span onClick={handleLoopFeedbackUnlike}>
-          <i className={`fas fa-redo ${feedbackStyles.loopIcon}`} />
-        </span>
-      ) : (
-        <span onClick={handleLoopFeedbackLike}>
-          <i className={`fas fa-redo ${feedbackStyles.loopIcon}`} />
-        </span>
-      )}
-      <span>{loop_count}</span>
-    </div>
-  );
-};
-
-
-
-  return (
-    // WAVE SURFER
-  
-    // WAVE SRUFER BS
-      <Card className={styles.Beat}>
-        <Card.Body>
-          <Media className="align-items-center justify-content-between">
-            <Link to={`/profiles/${profile_id}`}>
-              <Avatar src={profile_image} height={55} />
-              {owner}
-            </Link>
-            <div className="d-flex align-items-center">
-              <span>{updated_at}</span>
-              {is_owner && beatPage && (
-                <MoreDropdown
-                  handleEdit={handleEdit}
-                  handleDelete={handleDelete}
-                />
-              )}
-            </div>
-          </Media>
-         
-        </Card.Body>
-      {/* THIS IS WHERE WE NEED TO ADD THE WAVE SURFER JS */}
-       
-        <Link to={`/beats/${id}`}>
-           <div ref={waveSurferRef} className={styles.Waveform}></div>
-          <Card.Img src={musicImage} alt={title} />
-          {mp3 && (
-            <audio controls className={styles.Audio}>
-              <source src={mp3_url} type="audio/mpeg" />
-              Your browser does not support the audio element.
-            </audio>
-          )}
-        </Link>
-
-      
-      
-      {/* THIS IS WHERE WE NEED TO ADD THE WAVE SURFER JS */}
-    
-      {/*  */}
-        <Card.Body>
-          {title && <Card.Title className="text-center">{title}</Card.Title>}
-          {content && <Card.Text>{content}</Card.Text>}
-          {/* NEED TO EDIT THIS FOPR IPHONE */}
-          <div className={styles.beatBar}>
-            {is_owner ? (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>You can't like your own beat!</Tooltip>}
-              >
-              
-               <i className={`far fa-heart ${styles.Heart}`} />
-              </OverlayTrigger>
-            ) : like_id ? (
-              <span onClick={handleUnlike}>
-                <i className={`far fa-heart ${styles.Heart}`} />
-              </span>
-            ) : currentUser ? (
-              <span onClick={handleLike}>
-                <i className={`far fa-heart ${styles.Heart}`} />
-              </span>
-            ) : (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Log in to like beats!</Tooltip>}
-              >
-                <i className={`far fa-heart ${styles.Heart}`} />
-              </OverlayTrigger>
-                  
-            )}
-            {/* likes count here  */}
-            {likes_count}
-            <Link to={`/beats/${id}`}>
-              <i className={`far fa-comments ${styles.Comment}`} />
-            </Link>
-            {comments_count}
-          </div>
-        
-          <span className="float-right star.Star">
-            {hasLoaded ? (
-              <>
-                <Rating
-                  className={star.Star}
-                  readonly
-                  initialValue={averageRating.toFixed(1)}
-                  size={25}
-                // style={{ color: "#00ff00" }}
-                // COME BACK HERE
-                fillColor="#ffd54f"
-                />
-                {averageRating.toFixed(1)}
-              </>
-            ) : (
-              "Loading rating..."
-            )}
+    return (
+      <div className={styles.TrashFeedbackButton}>
+        {trash_id ? (
+          <span onClick={handleTrashFeedbackUnlike}>
+            <i className={`fas fa-trash ${feedbackStyles.trashIcon}`} />
           </span>
-          {/* PROBLEM HERE */}
-          <span className={feedbackStyles.FeedbackButtons}>
-   <span className={feedbackStyles.fireIconContainer}>
-              <FireFeedbackButton className={feedbackStyles.fireIcon} beat={id} fire_id={fire_id} fire_count={fire_count} />
-                <span className={feedbackStyles.fireIconText}>This beat is FIRE</span>
-            </span>
-
- <span className={feedbackStyles.hardIconContainer}>
-            <HardFeedbackButton className={feedbackStyles.hardIcon} beat={id} hard_id={hard_id} hard_count={hard_count} />
-                <span className={feedbackStyles.hardIconText}>This beat is HARD</span>
-            </span>
-
-<span className={feedbackStyles.trashIconContainer}>
-            <TrashFeedbackButton className={feedbackStyles.trashIcon} beat={id} trash_id={trash_id} trash_count={trash_count} />
-              <span className={feedbackStyles.trashIconText}>This beat is TRASH</span>
-            </span>
-
-<span className={feedbackStyles.coldIconContainer}>
-            <ColdFeedbackButton className={feedbackStyles.coldIcon} beat={id} cold_id={cold_id} cold_count={cold_count} />
-             <span className={feedbackStyles.coldIconText}>This beat is COLD</span>
-            </span>
-            
-<span className={feedbackStyles.loopIconContainer}>
-<LoopFeedbackButton className={feedbackStyles.loopIcon} beat={id} loop_id={loop_id} loop_count={loop_count} />
-  <span className={feedbackStyles.loopIconText}>play that AGAIN</span>
-            </span>
-</span>
-
-
-
-        </Card.Body>
-      </Card>
+        ) : (
+          <span onClick={handleTrashFeedbackLike}>
+            <i className={`fas fa-trash ${feedbackStyles.trashIcon}`} />
+          </span>
+        )}
+        <span>{trash_count}</span>
+      </div>
     );
   };
+
+  const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
+    return (
+      <div className={styles.LoopFeedbackButton}>
+        {loop_id ? (
+          <span onClick={handleLoopFeedbackUnlike}>
+            <i className={`fas fa-redo ${feedbackStyles.loopIcon}`} />
+          </span>
+        ) : (
+          <span onClick={handleLoopFeedbackLike}>
+            <i className={`fas fa-redo ${feedbackStyles.loopIcon}`} />
+          </span>
+        )}
+        <span>{loop_count}</span>
+      </div>
+    );
+  };
+
+  return (
+    <Card className={styles.Beat}>
+      <Card.Body>
+        <Media className="align-items-center justify-content-between">
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profile_image} height={55} />
+            {owner}
+          </Link>
+          <div className="d-flex align-items-center">
+            <span>{updated_at}</span>
+            {is_owner && beatPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
+          </div>
+        </Media>
+      </Card.Body>
+      <Link to={`/beats/${id}`}>
+        <Card.Img src={musicImage} alt={title} />
+        {mp3 && (
+          <audio controls className={styles.Audio}>
+            <source src={mp3_url} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        )}
+      </Link>
+
+      <Card.Body>
+        {title && <Card.Title className="text-center">{title}</Card.Title>}
+        {content && <Card.Text>{content}</Card.Text>}
+        <div className={styles.beatBar}>
+          {is_owner ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't like your own beat!</Tooltip>}
+            >
+              <i className={`far fa-heart ${styles.Heart}`} />
+            </OverlayTrigger>
+          ) : like_id ? (
+            <span onClick={handleUnlike}>
+              <i className={`far fa-heart ${styles.Heart}`} />
+            </span>
+          ) : currentUser ? (
+            <span onClick={handleLike}>
+              <i className={`far fa-heart ${styles.Heart}`} />
+            </span>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to like beats!</Tooltip>}
+            >
+              <i className={`far fa-heart ${styles.Heart}`} />
+            </OverlayTrigger>
+          )}
+          {likes_count}
+          <Link to={`/beats/${id}`}>
+            <i className={`far fa-comments ${styles.Comment}`} />
+          </Link>
+          {comments_count}
+        </div>
+
+        <span className="float-right star.Star">
+          {hasLoaded ? (
+            <>
+              <Rating
+                className={star.Star}
+                readonly
+                initialValue={averageRating.toFixed(1)}
+                size={25}
+                fillColor="#ffd54f"
+              />
+              {averageRating.toFixed(1)}
+            </>
+          ) : (
+            "Loading rating..."
+          )}
+        </span>
+
+        <span className={feedbackStyles.FeedbackButtons}>
+          <span className={feedbackStyles.fireIconContainer}>
+            <FireFeedbackButton
+              className={feedbackStyles.fireIcon}
+              beat={id}
+              fire_id={fire_id}
+              fire_count={fire_count}
+            />
+            <span className={feedbackStyles.fireIconText}>
+              This beat is FIRE
+            </span>
+          </span>
+
+          <span className={feedbackStyles.hardIconContainer}>
+            <HardFeedbackButton
+              className={feedbackStyles.hardIcon}
+              beat={id}
+              hard_id={hard_id}
+              hard_count={hard_count}
+            />
+            <span className={feedbackStyles.hardIconText}>
+              This beat is HARD
+            </span>
+          </span>
+
+          <span className={feedbackStyles.trashIconContainer}>
+            <TrashFeedbackButton
+              className={feedbackStyles.trashIcon}
+              beat={id}
+              trash_id={trash_id}
+              trash_count={trash_count}
+            />
+            <span className={feedbackStyles.trashIconText}>
+              This beat is TRASH
+            </span>
+          </span>
+
+          <span className={feedbackStyles.coldIconContainer}>
+            <ColdFeedbackButton
+              className={feedbackStyles.coldIcon}
+              beat={id}
+              cold_id={cold_id}
+              cold_count={cold_count}
+            />
+            <span className={feedbackStyles.coldIconText}>
+              This beat is COLD
+            </span>
+          </span>
+
+          <span className={feedbackStyles.loopIconContainer}>
+            <LoopFeedbackButton
+              className={feedbackStyles.loopIcon}
+              beat={id}
+              loop_id={loop_id}
+              loop_count={loop_count}
+            />
+            <span className={feedbackStyles.loopIconText}>
+              play that AGAIN
+            </span>
+          </span>
+        </span>
+      </Card.Body>
+    </Card>
+  );
+};
 
 export default Beat;
