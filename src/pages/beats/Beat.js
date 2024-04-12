@@ -1,6 +1,6 @@
 // src/components/Beat.js
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,  useRef } from "react";
 import styles from "../../styles/Beat.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -14,6 +14,8 @@ import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import feedbackStyles from "../../styles/FeedbackButtons.module.css";
 
 // import WaveSurfer from 'wavesurfer.js';
+import WaveSurfer from 'wavesurfer.js';
+
 
 
 
@@ -50,6 +52,8 @@ const Beat = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  // wavesurfer attempt 
+  const waveSurferRef = useRef(null);
 
   const [averageRating, setAverageRating] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -57,6 +61,9 @@ const Beat = (props) => {
   const handleEdit = () => {
     history.push(`/beats/${id}/edit`);
   };
+
+  // wavesurfer bs 
+  
 
   const handleDelete = async () => {
     try {
@@ -165,7 +172,7 @@ const Beat = (props) => {
         ),
       }));
     } catch (err) {
-      console.log("Error undoing HARD feedback:", err);
+      console.log("Error undoing HARD feedback:", err);      
     }
   };
   // 
@@ -271,38 +278,56 @@ const handleLoopFeedbackUnlike = async () => {
       }
     };
 
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const [{ data: ratingsData }] = await Promise.all([
-            axiosReq.get(`/rating/`),
-          ]);
+ useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch rating data
+        const [{ data: ratingsData }] = await Promise.all([
+          axiosReq.get(`/rating/`),
+        ]);
 
-          const ratingsForBeat = ratingsData.results.filter(
-            (rating) => rating.beat === parseInt(id)
-          );
-          const totalRatings = ratingsForBeat.reduce(
-            (acc, rating) => acc + rating.rating,
-            0
-          );
-          const averageRating = ratingsForBeat.length
-            ? totalRatings / ratingsForBeat.length
-            : 0;
+        // Filter ratings for the current beat
+        const ratingsForBeat = ratingsData.results.filter(
+          (rating) => rating.beat === parseInt(id)
+        );
 
-          setAverageRating(averageRating);
-          setHasLoaded(true);
-        } catch (err) {
-          console.log(err);
-        }
-      };
+        // Calculate average rating
+        const totalRatings = ratingsForBeat.reduce(
+          (acc, rating) => acc + rating.rating,
+          0
+        );
+        const averageRating = ratingsForBeat.length
+          ? totalRatings / ratingsForBeat.length
+          : 0;
 
-      setHasLoaded(false);
-      const timer = setTimeout(() => {
-        fetchData();
-      }, [id]);
+        // Update state
+        setAverageRating(averageRating);
+        setHasLoaded(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-      return () => clearTimeout(timer);
-    }, [id]);
+    // Call fetchData when the component mounts or when the id changes
+    setHasLoaded(false);
+    fetchData();
+
+    // Initialize WaveSurfer when the component mounts
+    const waveSurfer = WaveSurfer.create({
+      container: waveSurferRef.current,
+      waveColor: 'grey',
+      progressColor: 'red',
+      height: 100,
+    });
+    waveSurfer.load(mp3_url); // Load the audio file
+
+    // Cleanup function
+    return () => {
+      waveSurfer.destroy(); // Destroy WaveSurfer instance when the component unmounts
+    };
+  }, [id, mp3_url]);
+
+
   
   // fire button 2
 const FireFeedbackButton = ({ className, beat, fire_id, fire_count }) => {
@@ -400,7 +425,10 @@ const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
 
 
 
-    return (
+  return (
+    // WAVE SURFER
+  
+    // WAVE SRUFER BS
       <Card className={styles.Beat}>
         <Card.Body>
           <Media className="align-items-center justify-content-between">
@@ -418,8 +446,12 @@ const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
               )}
             </div>
           </Media>
+         
         </Card.Body>
+      {/* THIS IS WHERE WE NEED TO ADD THE WAVE SURFER JS */}
+       
         <Link to={`/beats/${id}`}>
+           <div ref={waveSurferRef} className={styles.Waveform}></div>
           <Card.Img src={musicImage} alt={title} />
           {mp3 && (
             <audio controls className={styles.Audio}>
@@ -429,6 +461,11 @@ const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
           )}
         </Link>
 
+      
+      
+      {/* THIS IS WHERE WE NEED TO ADD THE WAVE SURFER JS */}
+    
+      {/*  */}
         <Card.Body>
           {title && <Card.Title className="text-center">{title}</Card.Title>}
           {content && <Card.Text>{content}</Card.Text>}
