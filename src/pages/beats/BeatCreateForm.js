@@ -4,26 +4,19 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
-// import Upload from "../../assets/upload.png";
-import UploadMusicImage from "../../assets/newmusictrans.png";
-
-import styles from "../../styles/BeatCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Alert from 'react-bootstrap/Alert';
 import musicImage from "../../assets/music.jpg";
+import UploadMusicImage from "../../assets/newmusictrans.png";
+import Asset from "../../components/Asset";
+import styles from "../../styles/BeatCreateEditForm.module.css";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import { useHistory } from "react-router-dom";
 
 const BeatCreateForm = () => {
-  // eslint-disable-next-line
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState("");
-  console.log("form component rendered")
-
   const [beatData, setBeatData] = useState({
     title: "",
     content: "",
@@ -32,12 +25,9 @@ const BeatCreateForm = () => {
   });
 
   const mp3Input = useRef(null);
-  // might not want to upload an image 
-  // const imageInput = useRef(null);
   const history = useHistory();
 
-  // eslint-disable-next-line 
-  const { title, content, mp3, image } = beatData;
+  const { title, content, mp3 } = beatData;
 
   const handleChange = (event) => {
     setBeatData({
@@ -46,8 +36,6 @@ const BeatCreateForm = () => {
     });
   };
 
-
-  // new
   const handleChangeMp3 = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -67,20 +55,15 @@ const BeatCreateForm = () => {
     };
     reader.readAsDataURL(file);
   };
-  // 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-
     formData.append("title", title);
     formData.append("content", content);
     formData.append("mp3", mp3);
-    // formData.append("image", imageInput.current.files[0]);
-
     try {
       const { data } = await axios.post("/beats/", formData);
-      console.log(data)
       history.push(`/beats/${data.id}`);
     } catch (err) {
       console.log(err);
@@ -90,50 +73,6 @@ const BeatCreateForm = () => {
     }
   };
 
-  const textFields = (
-    <div className="text-center">
-      <Form.Group>
-        <Form.Label>Track title</Form.Label>
-        <Form.Control
-          type="text"
-          name="title"
-          value={title}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.title?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Info</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          name="content"
-          value={content}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-
-      <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => { }}
-      >
-        Cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        Create
-      </Button>
-    </div>
-  );
-
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
@@ -141,11 +80,8 @@ const BeatCreateForm = () => {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-
             <Image className={`${appStyles.musicImage} ${appStyles.smallImage}`} src={musicImage} rounded />
-
             <Form.Group className="text-center">
-
               {mp3 ? (
                 <>
                   <div>
@@ -166,9 +102,7 @@ const BeatCreateForm = () => {
                     className={` ${appStyles.smallImage}`}
                     src={UploadMusicImage}
                     message="Click or tap to upload an MP3 file"
-
                   />
-
                 </Form.Label>
               )}
               <Form.File
@@ -178,34 +112,14 @@ const BeatCreateForm = () => {
                 ref={mp3Input}
               />
             </Form.Group>
-
             {/* Render error messages */}
-
-            {errors?.title?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
             {errors?.mp3?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
             ))}
-            {/* new bs ^^ */}
-
-            {errors?.title?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
-
-
-            <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        {/* <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
-        </Col> */}
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>
             <div className="text-center">
@@ -241,10 +155,6 @@ const BeatCreateForm = () => {
             </div>
           </Container>
         </Col>
-        {successMessage && (
-          <Alert variant="success">{successMessage}</Alert>
-        )}
-
       </Row>
     </Form>
   );
