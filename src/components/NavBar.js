@@ -31,26 +31,26 @@ const NavBar = () => {
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="/mybeats/create" 
+      to="/mybeats/create"
     >
       <i className={`far fa-file-audio ${styles.navBarIcons}`}>
-        <span className={styles.navBarIconsText}> UPLOAD BEATS </span>  
+        <span className={styles.navBarIconsText}> UPLOAD BEATS </span>
       </i>
     </NavLink>
   );
-  
+
   const loggedInIcons = (
     <>
       <NavLink
-                exact
-                className={styles.NavLink}
-                activeClassName={styles.Active}
-                to="/"
-              >
-                <i className={`fas fa-home ${styles.navBarIcons}`}>
-                  <span className={styles.navBarIconsText}> HOME </span>
-                </i>
-              </NavLink>
+        exact
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/"
+      >
+        <i className={`fas fa-home ${styles.navBarIcons}`}>
+          <span className={styles.navBarIconsText}> HOME </span>
+        </i>
+      </NavLink>
       <NavLink
         className={styles.navBarIcons}
         activeClassName={styles.Active}
@@ -70,10 +70,10 @@ const NavBar = () => {
           <span className={styles.navBarIconsText}> LIKED</span>
         </i>
       </NavLink>
-     
-      <NavLink 
-        className={`${styles.NavLink} ${styles.navBarIcons}`} 
-        to="/" 
+
+      <NavLink
+        className={`${styles.NavLink} ${styles.navBarIcons}`}
+        to="/"
         onClick={handleSignOut}
       >
         <i className={`fas fa-sign-out-alt ${styles.navBarIcons}`}>
@@ -105,10 +105,10 @@ const NavBar = () => {
           <span className={styles.navBarIconsText}> LOGIN</span>
         </i>
       </NavLink>
-   
-      <NavLink 
-        to="/signup" 
-        className={styles.NavLink} 
+
+      <NavLink
+        to="/signup"
+        className={styles.NavLink}
         activeClassName={styles.Active}
       >
         <i className={`fas fa-user-plus ${styles.navBarIcons}`}>
@@ -126,12 +126,12 @@ const NavBar = () => {
       fixed="top"
     >
       <Container>
-        <NavLink to="/">
+        <NavLink to={currentUser ? "/" : "/about"}>
           <Navbar.Brand>
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
-        {currentUser && currentUser.profile_id && addBeatIcon} 
+        {currentUser && currentUser.profile_id && addBeatIcon}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
@@ -139,17 +139,15 @@ const NavBar = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            <NavLink 
-              to="/about" 
-              className={styles.NavLink} 
+            <NavLink
+              to="/about"
+              className={styles.NavLink}
               activeClassName={styles.Active}
             >
               <i className={`fa-solid fa-book-open ${styles.navBarIcons}`}>
                 <span className={styles.navBarIconsText}> ABOUT</span>
               </i>
             </NavLink>
-            
-
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
