@@ -221,9 +221,9 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ### Validator Testing
 
-1. CSS files pass through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/) with no issues found.
+1. CSS files pass through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/) with no problems.
 
-![Jigsaw validator message](src/assets/images-readme/readme-w3c.png)
+![Jigsaw validator message](src/assets/readme/css_validator.png)
 
 2. a. Javascript files pass through [ESLint](https://eslint.org/). The following issues were raised, and have been intentionally ignored as they are in relation to code that was provided in the Moments Walkthrough project:
 
