@@ -105,12 +105,16 @@ const BeatCreateForm = () => {
                   />
                 </Form.Label>
               )}
+              {/* NEED TO ADD SOMETHING HERE TO RESTART THE ERROR MESSAGE */}
+
               <Form.File
                 id="mp3-upload"
                 accept=".mp3"
                 onChange={handleChangeMp3}
                 ref={mp3Input}
+                
               />
+
             </Form.Group>
             {/* Render error messages */}
             {errors?.mp3?.map((message, idx) => (
