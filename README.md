@@ -127,6 +127,10 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ![Header](src/assets/readme/header.png)
 
+##### URl Tab
+
+![URL TAB](src/assets/readme/logo_tab.png)
+
 ##### Navigation - Desktop:
 
 ![Navbar desktop](src/assets/readme/navigation-desktop.png)
@@ -191,9 +195,10 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ## Testing
 
 ### Manual Testing:
-##### * There was an incredible amount of testing and this revealed several problems
 
-1. Mpr3 upload :
+##### \* There was an incredible amount of testing and this revealed several problems
+
+1. Mp3 upload :
 
 - Resolved by rewriting the whole.
 
@@ -264,7 +269,11 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ### Unfixed Bugs
 
-Whilst it is not technically a bug, I would like to add that I am not entirely satisfied with the header of the site on mobile devices. Increasing the font size to make it stand out, causes the burger icon to shift onto a new line, which takes up too much real estate on the screen. I had attempted early on to separate out the components & have them be independent of each-other, however this then presented a new issue. When shrinking the size of the burger icon, this also shrank the expanding window, which cut off the navigation items. I was unable to ascertain how to target the exact style rule imposed by React-Bootstrap to over ride this and expand the display window, and instead compromised by implementing a smaller font-size into my heading.
+1. I have not been able to get the NavBar to be as seemless as I would like.
+
+2. When I started this project I wanted the user to be able to upload full songs ( mp3s up to 3 minutes at least ), I never figured out how to to do that.
+
+3. THESE ARENT REALLY BUGS COME BACK TO THIS
 
 ## Technologies Used
 
@@ -366,10 +375,8 @@ web: serve -s build
 ### Content
 
 - Code Institute: The creation of the project came to life by utilising the Moments walkthrough step-by-step as a base foundation, and then building upon it to make the project my own. This is evident from the numerous docstrings within my files crediting the walkthrough.
-- [Mats Simonsson](https://github.com/Pelikantapeten): A fellow student & friend who consistently helps me to troubleshoot when needed, supports me constantly, and is my rubber duck.
-- [Martina Terlevic](https://github.com/SephTheOverwitch): A constant support system, providing reassurance, and the ability to calm me down.
-- [BobbyHadz](https://bobbyhadz.com/blog/react-you-are-importing-createroot-from-react-dom#:~:text=The%20error%20%22You%20are%20importing,js%20.): provided the answer on how to resolve a console error indicating that the createRoot render was not compatible with the current version of ReactJS.
-- Two events have been added to the site. The content for these was taken from the [Stavros Niarchos Foundation](https://www.snfcc.org/en/events), and the [Meet Market](https://www.themeetmarket.gr/en/). Each event has also been credited within the content body.
+
+- [LAUREN MENTOR](https://github.com/CluelessBiker): I could not have wished for a better mentor. 
 
 ### Media
 
