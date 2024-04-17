@@ -13,20 +13,16 @@ import Asset from "../../components/Asset";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
-
 // Display the most popular profiles and also the weatherwidget
-
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
   return (
     <>
       <Container
-        className={`${appStyles.Content} ${
-          mobile && "d-lg-none text-center mt-5 mb-3"
-        }`}
+        className={`${appStyles.Content} ${mobile && "d-lg-none text-center mt-5 mb-3"
+          }`}
       >
-        
         {popularProfiles.results.length ? (
           <>
             <p>Most followed profiles.</p>

@@ -1,36 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-// eslint-disable-next-line
-import UploadMusicImage from "../../assets/newmusictrans.png";
-
 import musicImage from "../../assets/music.jpg";
 import { Image } from "react-bootstrap";
-// eslint-disable-next-line
-import Asset from "../../components/Asset";
-
-// import Image from "react-bootstrap/Image";
-
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-// eslint-disable-next-line
-import Beat from "./Beat";
-
-
-
 
 function BeatEditForm() {
   const [errors, setErrors] = useState({});
-
   const [beatData, setBeatData] = useState({
     title: "",
     content: "",
@@ -39,7 +23,7 @@ function BeatEditForm() {
 
   const { title, content, mp3 } = beatData;
 
- const mp3Input = useRef(null);
+  const mp3Input = useRef(null);
   const history = useHistory();
   const { id } = useParams();
 
@@ -65,7 +49,6 @@ function BeatEditForm() {
     });
   };
 
- 
   const handleChangeMp3 = (event) => {
     if (event.target.files.length) {
       setBeatData({
@@ -82,8 +65,6 @@ function BeatEditForm() {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("mp3", mp3);
-
-   
 
     try {
       await axiosReq.put(`/beats/${id}/`, formData);
@@ -148,11 +129,8 @@ function BeatEditForm() {
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-           
-            <Image className={`${appStyles.musicImage} ${appStyles.smallImage}`}  src={musicImage}  rounded />
-
+            <Image className={`${appStyles.musicImage} ${appStyles.smallImage}`} src={musicImage} rounded />
             <Form.Group className="text-center">
-             
               {mp3 ? (
                 <>
                   <div>
@@ -169,13 +147,6 @@ function BeatEditForm() {
                   className="d-flex justify-content-center"
                   htmlFor="mp3-upload"
                 >
-                    {/* <Asset
-                    className={` ${appStyles.smallImage}`}
-                    src={UploadMusicImage} 
-                    message="Click or tap to upload an MP3 file"
-                    
-                    /> */}
-                    
                 </Form.Label>
               )}
               <Form.File

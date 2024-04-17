@@ -8,23 +8,19 @@
 
 .custom-rating {
     color: #e0a800;
-    /* Change the color here */
+    
 }
 
 
 
 
 .star.Star {
-    /* Your styles for the stars */
-    /* For example: */
     color: blue;
-    /* Change color */
     font-size: 20px;
  
 }
 
 .rateBeat {
-
     font-family: 'Noto Sans Sharada', sans-serif;
     
 }

@@ -8,7 +8,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/Modal.module.css";
 
-
 function BeatRatingForm(props) {
   const { beat, setBeat, id, owner } = props;
   const [rating, setRating] = useState(0);
@@ -55,10 +54,10 @@ function BeatRatingForm(props) {
         results: prevBeat.results.map((beat) => {
           return beat.id === parseInt(id)
             ? {
-                ...beat,
-                rating: beat.rating,
-                ratings_count: beat.ratings_count + 1,
-              }
+              ...beat,
+              rating: beat.rating,
+              ratings_count: beat.ratings_count + 1,
+            }
             : beat;
         }),
       }));
@@ -72,24 +71,16 @@ function BeatRatingForm(props) {
   };
 
   useEffect(() => {
-    // Get all elements with the class "style-module_simpleStarRating__nWUxf"
     const starRatingElements = document.querySelectorAll('.style-module_simpleStarRating__nWUxf');
-
-    // Loop through each star rating element
     starRatingElements.forEach(element => {
-      // Get the filled icons container element
       const filledIcons = element.querySelector('.style-module_fillIcons__6---A');
-      // Set the color of the filled icons to green
       filledIcons.style.color = '#e0a800;';
     });
   }, []);
 
   return (
     <>
-      {/* <div className="text-center rateBeat">Rate This Beat </div> */}
-<div className="text-center rateBeat" style={{ fontFamily: 'Noto Sans Sharada',  color: 'grey' }}>Rate This Beat</div>
-
-
+      <div className="text-center rateBeat" style={{ fontFamily: 'Noto Sans Sharada', color: 'grey' }}>Rate This Beat</div>
       <Form className="mt-2 pb-4" onSubmit={handleRatingSubmit}>
         <div className="text-center p-1 mb-1">
           <Rating onClick={handleRating} />
@@ -122,7 +113,7 @@ function BeatRatingForm(props) {
         </Modal.Header>
         <Modal.Body>
           <p>
-            Sorry slime it seems you have already rated this beat, 
+            Sorry slime it seems you have already rated this beat,
           </p>
         </Modal.Body>
         <Modal.Footer>

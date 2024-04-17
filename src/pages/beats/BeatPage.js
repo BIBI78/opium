@@ -30,7 +30,6 @@ function BeatPage() {
         const [{ data: beat }, { data: comments }] = await Promise.all([
           axiosReq.get(`/beats/${id}/`),
           axiosReq.get(`/comments/?beat=${id}`),
-      
         ]);
         setBeat({ results: [beat] });
         setComments(comments);
@@ -51,7 +50,6 @@ function BeatPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        {/* CHANGE HERE MOST POPULAR BEATS */}
         <p>popular producers</p>
         <Beat {...beat.results[0]} setBeats={setBeat} beatPage />
         <Container className={appStyles.Content}>
@@ -68,7 +66,6 @@ function BeatPage() {
               <Container className={`mb-3 ${appStyles.Content}`}>
                 {currentUser && currentUser.profile_id ? (
                   <BeatRatingForm
-                    // double id ???
                     profile_id={currentUser.profile_id}
                     beat={id}
                     id={id}
@@ -109,9 +106,7 @@ function BeatPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-       
-           <PopularProfiles />
-        
+        <PopularProfiles />
       </Col>
     </Row>
   );

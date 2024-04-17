@@ -21,7 +21,6 @@ function CommentCreateForm(props) {
     console.log("Content:", content);
     console.log("Beat:", beat);
     try {
-      // ERROR HERE, dont get it 
       const { data } = await axiosRes.post("/comments/", {
         content,
         beat,

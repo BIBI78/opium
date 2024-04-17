@@ -2,10 +2,8 @@
      display: flex;
     justify-content: flex-end; 
     float: right;
-    /* color: red; */
+    
 }
-
-/* Define hover styles for the coldIcon */
 
 
 .fireIcon:hover {
@@ -21,7 +19,6 @@
 .fireIconText {
     position: absolute;
     top: -25px;
-    /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
@@ -41,7 +38,7 @@
     /* Show the text on hover */
 }
 
-/*  */
+
 
 .hardIcon:hover {
     color: rgb(255, 208, 0);

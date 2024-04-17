@@ -69,7 +69,7 @@ function App() {
             exact
             path="/liked"
             render={() => (
-              // beats ?
+              
               <BeatsPage
                 message="No results found. Adjust the search keyword or like for thst type of beat."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
@@ -78,8 +78,6 @@ function App() {
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
-          {/* might need to take out this mp3 route */}
-          {/* <Route exact path="/mp3s/create" render={() => <Mp3CreateForm />} /> */}
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
          <Route exact path="/beats/:id" render={() => <BeatPage />} />
           <Route exact path="/beats/:id/edit" render={() => <BeatEditForm />} />

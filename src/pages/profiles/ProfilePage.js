@@ -76,7 +76,7 @@ function ProfilePage() {
           <Image
             className={styles.ProfileImage}
             roundedCircle
-            // src={profile?.image}
+
             src={profile?.image || defaultProfileImage}
           />
         </Col>
@@ -134,7 +134,7 @@ function ProfilePage() {
       {profileBeats.results.length ? (
         <InfiniteScroll
           children={profileBeats.results.map((beat) => (
-            // might need ti change this to Beat
+
             <Beat key={beat.id} {...beat} setBeats={setProfileBeats} />
           ))}
           dataLength={profileBeats.results.length}

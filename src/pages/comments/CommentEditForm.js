@@ -25,10 +25,10 @@ function CommentEditForm(props) {
         results: prevComments.results.map((comment) => {
           return comment.id === id
             ? {
-                ...comment,
-                content: formContent.trim(),
-                updated_at: "now",
-              }
+              ...comment,
+              content: formContent.trim(),
+              updated_at: "now",
+            }
             : comment;
         }),
       }));
@@ -59,7 +59,7 @@ function CommentEditForm(props) {
         </button>
         <button
           className={styles.Button}
-          disabled={!content.trim()}
+          disabled={!formContent.trim()}
           type="submit"
         >
           save

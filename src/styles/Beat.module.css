@@ -4,11 +4,9 @@
     border-radius: 2px;
     margin-bottom: 16px;
     text-align: center;
-    /* font-family: 'Montserrat', sans-serif; */
-    /* font-family: 'Archivo Black', sans-serif; */
     font-weight: 700;
     font-family: 'Noto Sans Sharada', sans-serif;
-    /* font-family: 'Kanit', sans-serif; */
+  
 }
 
 .Beat figure,
@@ -21,18 +19,18 @@ h5 {
     font-size: 5.9rem;
     color: red;
 }
+
 .far.fa-heart {
-        font-weight: 400;
-            font-size: 5.9rem;
-            color: red;
- 
+    font-weight: 400;
+    font-size: 5.9rem;
+    color: red;
+
 }
 
-.Comment{
+.Comment {
     font-weight: 400;
     font-size: 5.9rem;
     color: blue
-
 }
 
 .HeartOutline {
@@ -41,7 +39,7 @@ h5 {
 }
 
 .Heart:hover {
-   
+
     color: blue;
     font-size: 5.9rem;
 }
@@ -58,7 +56,7 @@ h5 {
 }
 
 .Comment:hover {
-    
+
     color: #f85032;
     font-size: 5.9rem;
 }
@@ -70,12 +68,12 @@ h5 {
 
 
 
-.beatBar{
+.beatBar {
     float: left;
     padding-bottom: auto;
     font-weight: 400;
     font-size: 5.9rem;
-    
+
 }
 
 
@@ -83,6 +81,6 @@ h5 {
 @media only screen and (max-width: 768px) {
     .beatBar {
         font-size: 4rem;
-        /* Adjust font size for smaller screens */
+        
     }
 }

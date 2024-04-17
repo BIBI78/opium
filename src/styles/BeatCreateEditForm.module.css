@@ -14,23 +14,22 @@
     height: auto;
 }
 
-/* THIS BS IS NOT WORKING  */
-/* NEED TO FIX THE SIZING FOR THE IPHONE SIZE SCREEN */
+
 
 
 @media only screen and (max-width: 390px) {
     .Container {
         min-height: 500px;
-        /* Adjust the height for smaller screens */
+       
     }
 
     .text-center {
         margin-top: 20px;
-        /* Add margin to center the form elements */
+       
     }
 
     .form-group {
         margin-bottom: 20px;
-        /* Add margin to separate form elements */
+        
     }
 }
