@@ -1,12 +1,5 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-
-import styles from "../../styles/SignInUpForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-
-import signupImage from "../../assets/signup.jpg";
-
 import {
   Form,
   Button,
@@ -18,6 +11,10 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
+import styles from "../../styles/SignInUpForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
+import signupImage from "../../assets/signup.jpg";
 
 const SignUpForm = () => {
   useRedirect("loggedIn");
@@ -29,7 +26,6 @@ const SignUpForm = () => {
   const { username, password1, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
-
   const history = useHistory();
 
   const handleChange = (event) => {
@@ -131,11 +127,7 @@ const SignUpForm = () => {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          // src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
-           src={signupImage}
-        />
+        <Image className={`${appStyles.FillerImage}`} src={signupImage} />
       </Col>
     </Row>
   );
