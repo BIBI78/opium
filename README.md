@@ -11,7 +11,9 @@ and get to straight to the MUSIC.
 
 #### DEPLOYED FRONTEND RENDER [LINK - LIVE SITE]()
 
-#### DEPLOYED BACKEND GITHUB [REPOSITORY]()
+#### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/BIBI78/v1/tree/v3)
+
+#### ! be sure to on branch "V3" !!!
 
 ![Site view across devices](src/assets/images-readme/readme-amiresponsive.png)
 
@@ -83,9 +85,8 @@ The user shouldnt be mindlessly scrolling but listeing to all the beats and reac
 
 ## User Stories
 
-Here are the links to the [GitHub Issues](https://github.com/CluelessBiker/project5-red-crayon/issues) for this project, as well as the [KANBAN board](https://github.com/users/CluelessBiker/projects/2).
+Here are the links to the [GitHub Issues](https://github.com/BIBI78/v1/issues) for this project.
 
-Please also find a full list of the Epics, User stories, & story points typed up [HERE](src/assets/userstories.md).
 
 ## Design
 
@@ -376,7 +377,7 @@ web: serve -s build
 
 - Code Institute: The creation of the project came to life by utilising the Moments walkthrough step-by-step as a base foundation, and then building upon it to make the project my own. This is evident from the numerous docstrings within my files crediting the walkthrough.
 
-- [LAUREN MENTOR](https://github.com/CluelessBiker): I could not have wished for a better mentor. 
+- [LAUREN MENTOR](https://github.com/CluelessBiker): I could not have wished for a better mentor.
 
 ### Media
 
