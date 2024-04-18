@@ -193,7 +193,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 - Resolved with the aid of tutor support. All database migrations for both the Django project & apps needed to be cleared & remigrated. The precise steps for this have been documented in the README for the deployed backend API.
 
-3. CRUD functionality has been tested for each of the following: Posts | Articles | Events | Comments | Likes | Follow | Profile
+3. CRUD functionality has been tested for each of the following: Beats| Feedback buttons | Star rating | Comments | Likes | Follow | Profile
 
 - Likes & Follow may only be created & deleted
 - Profile may only be updated
