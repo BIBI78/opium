@@ -14,6 +14,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import NotFound from './components/NotFound';
 // BEATS
 import BeatCreateForm from "./pages/beats/BeatCreateForm";
 import BeatPage from "./pages/beats/BeatPage";
@@ -30,7 +31,7 @@ import logo from "./assets/logo.png";
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
-   useEffect(() => {
+  useEffect(() => {
     const link = document.createElement("link");
     link.rel = "logo";
     link.href = logo;
@@ -69,7 +70,7 @@ function App() {
             exact
             path="/liked"
             render={() => (
-              
+
               <BeatsPage
                 message="No results found. Adjust the search keyword or like for thst type of beat."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
@@ -79,11 +80,13 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-         <Route exact path="/beats/:id" render={() => <BeatPage />} />
+          <Route exact path="/beats/:id" render={() => <BeatPage />} />
           <Route exact path="/beats/:id/edit" render={() => <BeatEditForm />} />
-          <Route exact path="/mybeats/create" render={() => <BeatCreateForm/>} />
-          
-          
+          <Route exact path="/mybeats/create" render={() => <BeatCreateForm />} />
+          <Route render={() => <NotFound />} />
+
+
+
           <Route
             exact
             path="/profiles/:id/edit/username"
@@ -102,6 +105,8 @@ function App() {
           <Route exact path="/about" render={() => <About />} />
 
           <Route render={() => <p>Page not found!</p>} />
+
+
         </Switch>
       </Container>
     </div>

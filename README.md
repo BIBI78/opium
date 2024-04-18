@@ -5,7 +5,7 @@ slatt00
 Opium just wants to make it simple for producers, rappers and fans of music to cut through the nonsense of social media
 and get to straight to the MUSIC.
 
-- The repository for the DRF-API associated with this project is available [HERE](https://github.com/BIBI78/drf_api). The installation, set up, and deployment steps for this section of the project have also been included in the README linked to the DRF-API.
+- The repository for the DRF-API associated with this project is available [HERE](https://github.com/BIBI78/drf_api). The installation, set up, and deployment steps are all in this README doc.
 
 #### DEPLOYED BACKEND API RENDER [LINK]()
 
@@ -29,9 +29,6 @@ The live link for "The Red Crayon" can be found [HERE](https://project5-red-cray
   - [Current User Goals](#current-user-goals "Current User Goals")
   - [New User Goals](#new-user-goals "New User Goals")
 - [User Stories](#user-stories "User Stories")
-  - [Admin stories](#admin-stories "Admin stories")
-  - [Artist stories](#artist-stories "Artist stories")
-  - [Visitor stories](#visitor-stories "Visitor stories")
 - [Design](#design "Design")
   - [Colour Scheme](#colour-scheme "Colour Scheme")
   - [Typography](#typography "Typography")
@@ -168,6 +165,10 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ![Sign-up](src/assets/readme/signup.png)
 
+##### 404 Page NOT FOUND:
+
+![404](src/assets/readme/404_image.png)
+
 ### Features Left to Implement:
 
 - In app remixing ( I want the user to be able to slow down speed up beats and add vocals)
@@ -182,7 +183,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ### Manual Testing:
 
-##### \* There was an incredible amount of testing and this revealed several problems
+##### \* There was an incredible amount of testing and this revealed several problems and gaps in my understanding.\*
 
 1. Mp3 upload :
 

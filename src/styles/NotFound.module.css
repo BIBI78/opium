@@ -1,0 +1,11 @@
+.ErrorGraphic img {
+    width: 50%;
+    height: auto;
+    
+    position: absolute;
+    right: 35%;
+    
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+}
