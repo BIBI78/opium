@@ -112,7 +112,6 @@ const BeatCreateForm = () => {
                 accept=".mp3"
                 onChange={handleChangeMp3}
                 ref={mp3Input}
-
               />
 
             </Form.Group>
@@ -124,7 +123,7 @@ const BeatCreateForm = () => {
             ))}
           </Container>
         </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+        <Col md={5} lg={4} className="p-0 p-md-2">
           <Container className={appStyles.Content}>
             <div className="text-center">
               <Form.Group>
@@ -165,3 +164,4 @@ const BeatCreateForm = () => {
 }
 
 export default BeatCreateForm;
+
