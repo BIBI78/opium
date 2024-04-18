@@ -87,22 +87,7 @@ The user shouldnt be mindlessly scrolling but listeing to all the beats and reac
 
 Here are the links to the [GitHub Issues](https://github.com/BIBI78/v1/issues) for this project.
 
-
 ## Design
-
-### Wireframes:
-
-##### Home Page - Desktop:
-
-![Desktop Home](src/assets/images-readme/readme-wireframe-home.png)
-
-##### Home Page - Mobile:
-
-![Desktop Mobile](src/assets/images-readme/readme-wireframe-mobile.png)
-
-##### Form Page:
-
-![Form Page](src/assets/images-readme/readme-wireframe-form.png)
 
 ##### Site Navigation:
 
@@ -288,36 +273,39 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ### Frameworks, Libraries & Programs Used
 
-- Google Fonts : For the site fonts.
-- Font Awesome : To add icons to the social links in the footer & navigation sections.
-- GitPod : To build the project & create the JSX & CSS files before pushing the project to Github.
-- GitHub : To store my repository for submission.
-- Balsamiq : Was used to create mockups of the project prior to starting.
-- Am I Responsive? : To ensure the project looked good across all devices.
-- Favicon : To provide the code & image for the icon in the tab bar.
-- Django : Used to build the backend database that serves as an API for the front-end project.
-- React-Bootstrap : The styling library that has aided to the layout of the site, and which was introduced to us during the course of the program.
-- DrawSQL : An interactive tool that allows for the creation of Database mock-ups so that we can visualise the relationships between models.
-- ReactJS : To build the components that would collectively form the front-end application.
+- Google Fonts : For all the fonts on the site.
+- Font Awesome : For the icons.
+- GitPod : To build the project & for the JSX & CSS files
+- GitHub : To store the repository for submission.
+- Am I Responsive? : To make sure the project legit on all devices.
+- Favicon : For the logo image in the tab bar.
+- Django : Used to build the backend database ( the API for the frontend)
+- React-Bootstrap : For the layout of the website.
+- ReactJS : To build the components for the frontend application.
 
 ## Components
 
 Several components have been implemented within this project that have been reused throughout the project:
 
-1. axiosDefault.js : for ease of communication with the backend API.
-2. Asset.js : to supply the loading spinner & user avatar throughout the site.
-3. DropdownMenu.js : to allow users to edit/delete their Articles, Events & Posts.
-4. CurrentUserContext.js : confirm users logged-in status to determine what functionality is available to that user.
-5. ProfileDataContext.js : provide un/follow ability to other users across PopProf & ProfPage components.
-6. ToggleCollapse.js : whilst this component has only been applied to the NavBarMini, it could in theory be applied to additional dropdown menus installed into the site in the future to allow for the automatic collapse of an element upon mouse click.
-7. useRedirect.js : redirects a user to another page if they are not authorised to be on the page they are trying to access.
-8. utils.js : supplies functionality to all of the components that utilise the Infinite Scroll.
+1. axiosDefault.js: Manages communication with the backend API.
+2. Asset.js: Handles the loading spinner and user avatar display throughout the site.
+3. DropdownMenu.js: Provides functionality for users to edit or delete their posts through a dropdown menu.
+4. CurrentUserContext.js: Confirms the logged-in status of users to determine available functions.
+5. ProfileDataContext.js: Manages the functionality related to following or unfollowing other users' profiles.
+6. ToggleCollapse.js: Manages the toggling of collapsible elements.
+7. useRedirect.js: Facilitates redirection of users to another page if they lack authorization to access the current page.
+8. utils.js: Supplies functionality to components utilizing the Infinite Scroll feature.
+
+#
+
+##### These steps I got from this README doc: [Deployment steps](https://github.com/CluelessBiker/project5-red-crayon)
 
 ## Deployment
 
-The site was deployed to Heroku. The steps to deploy are as follows:
+The site is deployed to Heroku.
+The deployment steps:
 
-1. Launch the gitpod workspace.
+1. Launch the gitpod.
 2. Install ReactJS:
 
 ```
@@ -325,7 +313,7 @@ npx create-react-app . --use-npm
 npm start
 ```
 
-2. Install the following packages using the command `npm install`:
+2. Then nstall all the following packages using the command `npm install`:
 
 ```
 react-bootstrap@1.6.3 bootstrap@4.6.0
@@ -337,18 +325,18 @@ jwt-decode
 -g eslint
 ```
 
-3. Git add, commit, and push changes to gitpod.
-4. Create the project app on Heroku, and link the GitHub repository by navigating to the 'Deploy' tab.
+3. Git add, commit,push changes to gitpod.
+4. Create the app on Heroku, and then link the GitHub repository. You need to navigate to the 'Deploy' tab.
 
-### Connecting to the API:
+### Connect to the API:
 
-1. Navigated to the Heroku app of the project DRF-API, and under the Settings tab, added the following configvars:
+1. Go to the Heroku app of the DRF-API, and under the Settings tab, add the following configvars:
 
 - Key: CLIENT_ORIGIN | Value: https://react-app-name.herokuapp.com
 - Key: CLIENT_ORIGIN_DEV | Value: https://gitpod-browser-link.ws-eu54.gitpod.io
 
-2. Check that the trailing slash `\` at the end of both links has been removed, and save the configvar pairs.
-3. Install the Axios package, & create supporting `axiosDefaults.js` as shown in [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js).
+2. Make sure that the trailing slash `\` at the end of both links has been removed, and then save the configvar pairs.
+3. Install the Axios package, & create supporting `axiosDefaults.js`.
 
 ### Deploy to Heroku:
 
@@ -367,19 +355,12 @@ web: serve -s build
 3. Repeat the steps of git add/commit/push.
 4. Deploy the project via the deploy button on Heroku.
 
-### Deploy to Render & ElephantSQL:
-
-- Due to Heroku revoking their frie tier access, the project has been redeployed using (Render)[https://render.com/] & (ElephantSQL)[https://www.elephantsql.com/] using the following [instructions](https://code-institute-students.github.io/deployment-docs/41-pp5-adv-fe/pp5-adv-fe-drf-01-create-a-database)
-
 ## Credits
 
 ### Content
-
-- Code Institute: The creation of the project came to life by utilising the Moments walkthrough step-by-step as a base foundation, and then building upon it to make the project my own. This is evident from the numerous docstrings within my files crediting the walkthrough.
 
 - [LAUREN MENTOR](https://github.com/CluelessBiker): I could not have wished for a better mentor.
 
 ### Media
 
-- 404 Error Graphic from [PNG Tree](https://pngtree.com/freepng/404-error-interface-art-word-design_4043816.html)
-- Images for the Articles, Events & Posts made on the site have been accumulated from numerous sources on Twitter & Instagram. I do not have the information of the original content creator for these memes.
+- All images came from [Google images](https://www.google.com/)
