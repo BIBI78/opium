@@ -17,7 +17,7 @@ and get to straight to the MUSIC.
 
 ![Site view across devices](src/assets/images-readme/readme-amiresponsive.png)
 
-The live link for "The Red Crayon" can be found [HERE](https://project5-red-crayon.onrender.com)
+The live link for " O PI U M" [HERE](https://)
 
 ## Table of Contents
 
@@ -196,7 +196,8 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 3. CRUD functionality has been tested for each of the following: Beats| Feedback buttons | Star rating | Comments | Likes | Follow | Profile
 
 - Likes & Follow may only be created & deleted
-- Profile may only be updated
+- Profile can only be updated
+- Ratings cannot be updated
 
 4. All nav links open to the correct page.
 5. All external links open to a new browser window.
