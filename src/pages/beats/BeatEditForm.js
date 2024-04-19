@@ -22,6 +22,7 @@ function BeatEditForm() {
   });
 
   const { title, content, mp3 } = beatData;
+  const [newMp3Added, setNewMp3Added] = useState(false);
 
   const mp3Input = useRef(null);
   const history = useHistory();
@@ -55,6 +56,7 @@ function BeatEditForm() {
         ...beatData,
         mp3: event.target.files[0],
       });
+      setNewMp3Added(true);
     }
   };
 
@@ -64,7 +66,9 @@ function BeatEditForm() {
 
     formData.append("title", title);
     formData.append("content", content);
-    //formData.append("mp3", mp3);
+    if (newMp3Added) {
+      formData.append("mp3", mp3);
+    }
 
     try {
       await axiosReq.patch(`/beats/${id}/`, formData);
