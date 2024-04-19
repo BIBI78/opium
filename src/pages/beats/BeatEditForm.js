@@ -64,10 +64,10 @@ function BeatEditForm() {
 
     formData.append("title", title);
     formData.append("content", content);
-    formData.append("mp3", mp3);
+    //formData.append("mp3", mp3);
 
     try {
-      await axiosReq.put(`/beats/${id}/`, formData);
+      await axiosReq.patch(`/beats/${id}/`, formData);
       history.push(`/beats/${id}`);
     } catch (err) {
       console.log(err);

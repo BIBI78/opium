@@ -17,7 +17,7 @@ and get to straight to the MUSIC.
 
 ![Site view across devices](src/assets/images-readme/readme-amiresponsive.png)
 
-The live link for " O PI U M" [HERE](https://)
+The live link for " O P I U M" [HERE](https://)
 
 ## Table of Contents
 
