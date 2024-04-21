@@ -137,6 +137,10 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ![Star Rating ](src/assets/readme/rating_form.png)
 ![Star Rating 2 ](src/assets/readme/rating_form_2.png)
 
+##### NOTE:
+
+for the star rating I got the idea from this repo [repo](https://github.com/andreas-ka/explore-sthlm-react-frontend) which I had to tweak for my prohect and purposes.
+
 #### 404 Page Not Found:
 
 ![404 Page Not Found](src/assets/readme/404.png)
@@ -321,7 +325,7 @@ web: serve -s build
 
 ### Content
 
-- [LAUREN MENTOR](https://github.com/CluelessBiker): I could not have wished for a better mentor.
+- [LAUREN MENTOR](https://github.com/CluelessBiker): I could not have wished for a better mentor and who README doc I used for guidence here.
 
 ### Media
 
