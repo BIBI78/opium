@@ -7,17 +7,17 @@ and get to straight to the MUSIC.
 
 - The repository for the DRF-API associated with this project is available [HERE](https://github.com/BIBI78/drf_api). The installation, set up, and deployment steps are all in this README doc.
 
-#### DEPLOYED BACKEND API RENDER [LINK]()
+#### DEPLOYED BACKEND API RENDER [LINK](https://drfa-api-0c6557539d5a.herokuapp.com/)
 
-#### DEPLOYED FRONTEND RENDER [LINK - LIVE SITE]()
+#### DEPLOYED FRONTEND RENDER [LINK - LIVE SITE](https://opium-a765be924d82.herokuapp.com/)
 
-#### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/BIBI78/v1/tree/v3)
+#### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/BIBI78/opium)
 
 #### ! be sure to on branch "V3" !!!
 
-![Site view across devices](src/assets/images-readme/readme-amiresponsive.png)
+![Site view across devices](src/assets/readme/amiresponsive.png)
 
-The live link for " O P I U M" [HERE](https://)
+The live link for " O P I U M" [HERE](https://opium-a765be924d82.herokuapp.com/)
 
 ## Table of Contents
 
@@ -214,7 +214,6 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ![Jigsaw validator message](src/assets/readme/css_validator.png)
 
 2.  [ESLint](https://eslint.org/).
-
 
 ### Unfixed Bugs
 
