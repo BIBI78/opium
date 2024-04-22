@@ -7,13 +7,13 @@ and get to straight to the MUSIC.
 
 - The repository for the DRF-API associated with this project is available [HERE](https://github.com/BIBI78/drf_api). The installation, set up, and deployment steps are all in this README doc.
 
-#### DEPLOYED BACKEND API RENDER [LINK](https://drfa-api-0c6557539d5a.herokuapp.com/)
+#### DEPLOYED BACKEND API HEROKU [LINK](https://drfa-api-0c6557539d5a.herokuapp.com/)
 
-#### DEPLOYED FRONTEND RENDER [LINK - LIVE SITE](https://opium-a765be924d82.herokuapp.com/)
+#### DEPLOYED FRONTEND HEROKU [LINK - LIVE SITE](https://opium-a765be924d82.herokuapp.com/)
 
 #### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/BIBI78/opium)
 
-#### ! be sure to on branch "V3" !!!
+
 
 ![Site view across devices](src/assets/readme/amiresponsive.png)
 
