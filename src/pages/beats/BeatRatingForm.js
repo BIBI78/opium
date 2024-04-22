@@ -47,6 +47,7 @@ function BeatRatingForm(props) {
       await axiosRes.post("/rating/", {
         beat,
         rating,
+
       });
 
       setBeat((prevBeat) => ({

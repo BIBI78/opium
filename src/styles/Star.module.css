@@ -1,5 +1,6 @@
 .Star {
-    color: rgb(0, 0, 0);
+    /* color: rgb(0, 0, 0); */
+    color:#ffc107;
     font-size: medium;
     font-family: 'Noto Sans Sharada', sans-serif;
 }

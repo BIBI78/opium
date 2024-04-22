@@ -61,7 +61,7 @@ const Beat = (props) => {
           0
         );
         const averageRating = ratingsForBeat.length
-          ? totalRatings / ratingsForBeat.length
+          ? totalRatings / (ratingsForBeat.length * 10)
           : 0;
 
         setAverageRating(averageRating);
@@ -445,7 +445,7 @@ const Beat = (props) => {
                 readonly
                 initialValue={averageRating.toFixed(1)}
                 size={25}
-                fillColor="#ffd54f"
+                fillColor="#yellow"
               />
               {averageRating.toFixed(1)}
             </>
