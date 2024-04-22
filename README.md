@@ -13,8 +13,6 @@ and get to straight to the MUSIC.
 
 #### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/BIBI78/opium)
 
-
-
 ![Site view across devices](src/assets/readme/amiresponsive.png)
 
 The live link for " O P I U M" [HERE](https://opium-a765be924d82.herokuapp.com/)
@@ -143,7 +141,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 #### Popular Profiles:
 
-![Popular Profiles](src/assets/images-readme/readme-populareprofiles.png)
+![Popular Profiles](src/assets/readme/popular_profiles.png)
 
 #### Social Links:
 
