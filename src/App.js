@@ -47,67 +47,22 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              // Might need to put beats here
-              <BeatsPage message="No results found. Adjust the search keyword." />
-            )}
-          />
-          <Route
-            exact
-            path="/feed"
-            render={() => (
-              // beats ?
-              <BeatsPage
-                message="No results found. Adjust the search keyword or follow a user."
-                filter={`owner__followed__owner__profile=${profile_id}&`}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/liked"
-            render={() => (
-
-              <BeatsPage
-                message="No results found. Adjust the search keyword or like for thst type of beat."
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-              />
-            )}
-          />
+          <Route exact path="/" render={() => <BeatsPage message="No results found. Adjust the search keyword." />} />
+          <Route exact path="/feed" render={() => <BeatsPage message="No results found. Adjust the search keyword or follow a user." filter={`owner__followed__owner__profile=${profile_id}&`} />} />
+          <Route exact path="/liked" render={() => <BeatsPage message="No results found. Adjust the search keyword or like for thst type of beat." filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`} />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
+          <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
+          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route exact path="/beats/:id" render={() => <BeatPage />} />
           <Route exact path="/beats/:id/edit" render={() => <BeatEditForm />} />
+          <Route exact path="/beats/:id" render={() => <BeatPage />} />
           <Route exact path="/mybeats/create" render={() => <BeatCreateForm />} />
-          <Route render={() => <NotFound />} />
-
-
-
-          <Route
-            exact
-            path="/profiles/:id/edit/username"
-            render={() => <UsernameForm />}
-          />
-          <Route
-            exact
-            path="/profiles/:id/edit/password"
-            render={() => <UserPasswordForm />}
-          />
-          <Route
-            exact
-            path="/profiles/:id/edit"
-            render={() => <ProfileEditForm />}
-          />
           <Route exact path="/about" render={() => <About />} />
-
-          <Route render={() => <p>Page not found!</p>} />
-
-
+          <Route render={() => <NotFound />} />
         </Switch>
+
       </Container>
     </div>
   );
