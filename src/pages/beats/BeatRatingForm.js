@@ -14,6 +14,7 @@ function BeatRatingForm(props) {
   const [showModal, setShowModal] = useState(false);
   const [noRateModal, setNoRateModal] = useState(false);
   const [ownerRateModal, setOwnerRateModal] = useState(false);
+  const [userRating, setUserRating] = useState(null);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
@@ -47,7 +48,6 @@ function BeatRatingForm(props) {
       await axiosRes.post("/rating/", {
         beat,
         rating,
-
       });
 
       setBeat((prevBeat) => ({
@@ -72,6 +72,25 @@ function BeatRatingForm(props) {
   };
 
   useEffect(() => {
+    const fetchUserRating = async () => {
+      try {
+        const { data: ratingsData } = await axiosReq.get(`/rating/`);
+        const userRating = ratingsData.results.find((rating) => {
+          return (
+            rating.owner === currentUser?.username &&
+            rating.beat === parseInt(id, 10)
+          );
+        });
+        setUserRating(userRating);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchUserRating();
+  }, [currentUser, id]);
+
+  useEffect(() => {
     const starRatingElements = document.querySelectorAll('.style-module_simpleStarRating__nWUxf');
     starRatingElements.forEach(element => {
       const filledIcons = element.querySelector('.style-module_fillIcons__6---A');
@@ -79,20 +98,33 @@ function BeatRatingForm(props) {
     });
   }, []);
 
-  return (
+  // Hide the button if user has already rated the beat
+  const submitButton = userRating ? null : (
+    <button
+      className={`${btnStyles.Button} ${btnStyles.Bright}`}
+      type="submit"
+    >
+      Submit
+    </button>
+  );
+
+  // Hide the entire rating section if the user has already rated the beat
+  const ratingSection = userRating ? null : (
     <>
       <div className="text-center rateBeat" style={{ fontFamily: 'Noto Sans Sharada', color: 'grey' }}>Rate This Beat</div>
       <Form className="mt-2 pb-4" onSubmit={handleRatingSubmit}>
         <div className="text-center p-1 mb-1">
           <Rating onClick={handleRating} />
         </div>
-        <button
-          className={`${btnStyles.Button} ${btnStyles.Bright}`}
-          type="submit"
-        >
-          Submit
-        </button>
+        {submitButton}
       </Form>
+    </>
+  );
+
+  return (
+    <>
+      {ratingSection}
+      {/* Modals */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Rating</Modal.Title>
@@ -114,7 +146,7 @@ function BeatRatingForm(props) {
         </Modal.Header>
         <Modal.Body>
           <p>
-            Sorry slime it seems you have already rated this beat,
+            Sorry, you have already rated this beat.
           </p>
         </Modal.Body>
         <Modal.Footer>
@@ -128,7 +160,7 @@ function BeatRatingForm(props) {
           <Modal.Title>Rating</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p> Na it dont work like that , cant rate your own music.</p>
+          <p>You can't rate your own music.</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setOwnerRateModal(false)}>
