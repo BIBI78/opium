@@ -13,7 +13,15 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
+/**
+ * Component for editing a beat.
+ * 
+ * Renders a form to edit beat details, including title, content, and MP3 file.
+ * Fetches the beat data from the server on mount and updates the form accordingly.
+ * Handles form submission to update the beat data.
+ */
 function BeatEditForm() {
+  // State for form data and errors
   const [errors, setErrors] = useState({});
   const [beatData, setBeatData] = useState({
     title: "",
@@ -21,19 +29,25 @@ function BeatEditForm() {
     mp3: "",
   });
 
+  // Destructuring form data
   const { title, content, mp3 } = beatData;
+
+  // State to track if new MP3 file is added
   const [newMp3Added, setNewMp3Added] = useState(false);
 
+  // Ref for file input
   const mp3Input = useRef(null);
   const history = useHistory();
   const { id } = useParams();
 
+  // Fetch beat data on component mount
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/beats/${id}/`);
         const { title, content, mp3, is_owner } = data;
 
+        // Redirect if user is not the owner of the beat
         is_owner ? setBeatData({ title, content, mp3 }) : history.push("/");
       } catch (err) {
         console.log(err);
@@ -43,6 +57,7 @@ function BeatEditForm() {
     handleMount();
   }, [history, id]);
 
+  // Handle form input change
   const handleChange = (event) => {
     setBeatData({
       ...beatData,
@@ -50,6 +65,7 @@ function BeatEditForm() {
     });
   };
 
+  // Handle MP3 file change
   const handleChangeMp3 = (event) => {
     if (event.target.files.length) {
       setBeatData({
@@ -60,6 +76,7 @@ function BeatEditForm() {
     }
   };
 
+  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -81,6 +98,7 @@ function BeatEditForm() {
     }
   };
 
+  // JSX for text fields and buttons
   const textFields = (
     <div className="text-center">
       <Form.Group>
@@ -126,6 +144,7 @@ function BeatEditForm() {
     </div>
   );
 
+  // Render the form
   return (
     <Form onSubmit={handleSubmit}>
       <Row>

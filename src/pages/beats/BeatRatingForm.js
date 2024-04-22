@@ -8,8 +8,18 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/Modal.module.css";
 
+/**
+ * Component for managing beat ratings.
+ * 
+ * Renders a star rating input and handles rating submission.
+ * Shows modals for successful submission, already rated beat, and owner rating attempt.
+ * Fetches user's previous rating for the beat on mount.
+ */
 function BeatRatingForm(props) {
+  // Destructure props
   const { beat, setBeat, id, owner } = props;
+
+  // State variables for rating, modals, and user's previous rating
   const [rating, setRating] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [noRateModal, setNoRateModal] = useState(false);
@@ -18,10 +28,12 @@ function BeatRatingForm(props) {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  // Function to handle rating selection
   const handleRating = (rate) => {
     setRating(rate);
   };
 
+  // Function to handle rating submission
   const handleRatingSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -71,6 +83,7 @@ function BeatRatingForm(props) {
     }
   };
 
+  // Effect hook to fetch user's previous rating for the beat on mount
   useEffect(() => {
     const fetchUserRating = async () => {
       try {
@@ -90,6 +103,7 @@ function BeatRatingForm(props) {
     fetchUserRating();
   }, [currentUser, id]);
 
+  // Effect hook to set star color
   useEffect(() => {
     const starRatingElements = document.querySelectorAll('.style-module_simpleStarRating__nWUxf');
     starRatingElements.forEach(element => {

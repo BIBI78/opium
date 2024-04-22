@@ -27,6 +27,12 @@ import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import defaultProfileImage from "../../assets/defaultpic.jpg";
 
+/**
+ * Component for displaying user profile information.
+ * 
+ * Displays the user's profile picture, name, statistics (beats, followers, following),
+ * and their posted beats.
+ */
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profileBeats, setProfileBeats] = useState({ results: [] });
@@ -76,30 +82,24 @@ function ProfilePage() {
           <Image
             className={styles.ProfileImage}
             roundedCircle
-
             src={profile?.image || defaultProfileImage}
           />
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
-
             <Col xs={3} className="my-2">
-
               <div>{profile?.beats_count}</div>
               <div>beats</div>
             </Col>
-
             <Col xs={3} className="my-2">
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
-
             <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
-
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
@@ -134,7 +134,6 @@ function ProfilePage() {
       {profileBeats.results.length ? (
         <InfiniteScroll
           children={profileBeats.results.map((beat) => (
-
             <Beat key={beat.id} {...beat} setBeats={setProfileBeats} />
           ))}
           dataLength={profileBeats.results.length}

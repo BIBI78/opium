@@ -14,6 +14,12 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+/**
+ * Component for changing user password.
+ * 
+ * Allows the user to change their password.
+ * Handles form submission and error handling.
+ */
 const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();
@@ -36,7 +42,7 @@ const UserPasswordForm = () => {
 
   useEffect(() => {
     if (currentUser?.profile_id?.toString() !== id) {
-      // redirect user if they are not the owner of this profile
+      // Redirect user if they are not the owner of this profile
       history.push("/");
     }
   }, [currentUser, history, id]);

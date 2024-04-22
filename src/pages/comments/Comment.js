@@ -9,6 +9,12 @@ import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 
+/**
+ * Component for displaying a single comment.
+ * 
+ * Renders the comment content, owner's username, profile image, and timestamp.
+ * Provides functionality for editing and deleting comments.
+ */
 const Comment = (props) => {
   const {
     profile_id,
@@ -21,13 +27,16 @@ const Comment = (props) => {
     setComments,
   } = props;
 
+  // State variable to control the visibility of the edit form
   const [showEditForm, setShowEditForm] = useState(false);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  // Function to handle comment deletion
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
+      // Update beat comments count
       setBeat((prevBeat) => ({
         results: [
           {
@@ -36,7 +45,7 @@ const Comment = (props) => {
           },
         ],
       }));
-
+      // Remove the deleted comment from the comments list
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
@@ -54,6 +63,7 @@ const Comment = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
+          {/* Conditionally render edit form or comment content */}
           {showEditForm ? (
             <CommentEditForm
               id={id}
@@ -67,6 +77,7 @@ const Comment = (props) => {
             <p>{content}</p>
           )}
         </Media.Body>
+        {/* Render more dropdown for the comment owner */}
         {is_owner && !showEditForm && (
           <MoreDropdown
             handleEdit={() => setShowEditForm(true)}

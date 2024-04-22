@@ -14,12 +14,21 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 
+/**
+ * Component for displaying a page with a list of beats.
+ * 
+ * Renders a search bar and a list of beats.
+ * Fetches beats from the server based on search query and filter.
+ * Supports infinite scroll for loading more beats.
+ */
 function BeatsPage({ message, filter = "" }) {
+  // State variables for storing beats, loading state, and search query
   const [beats, setBeats] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
 
+  // Effect hook to fetch beats based on search query and filter
   useEffect(() => {
     const fetchBeats = async () => {
       try {

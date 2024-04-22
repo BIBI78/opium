@@ -7,6 +7,12 @@ import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
+/**
+ * Component for displaying user profiles.
+ * 
+ * Renders user avatar, username, and follow/unfollow button.
+ * Handles follow/unfollow functionality based on current user.
+ */
 const Profile = (props) => {
   const { profile, mobile, imageSize = 55 } = props;
   const { id, following_id, image, owner } = profile;
@@ -27,6 +33,7 @@ const Profile = (props) => {
         <strong>{owner}</strong>
       </div>
       <div className={`text-right ${!mobile && "ml-auto"}`}>
+        {/* Render follow/unfollow button based on user's relationship */}
         {!mobile &&
           currentUser &&
           !is_owner &&

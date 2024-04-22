@@ -6,6 +6,12 @@ import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserCon
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+/**
+ * Component for editing user profile information.
+ * 
+ * Allows the user to edit their profile name, bio, and image.
+ * Handles form submission and error handling.
+ */
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();

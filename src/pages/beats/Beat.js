@@ -11,7 +11,13 @@ import { Rating } from "react-simple-star-rating";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import feedbackStyles from "../../styles/FeedbackButtons.module.css";
 
+/**
+ * Represents a single beat card component.
+ * @param {Object} props - The props object.
+ * @returns {JSX.Element} A single beat card component.
+ */
 const Beat = (props) => {
+  // Destructuring props
   const {
     id,
     owner,
@@ -46,6 +52,9 @@ const Beat = (props) => {
   const [averageRating, setAverageRating] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  /**
+   * Fetches the average rating for the beat.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -79,10 +88,17 @@ const Beat = (props) => {
     return () => clearTimeout(timer);
   }, [id]);
 
+  /**
+   * Redirects the user to the Edit page for the beat.
+   */
   const handleEdit = () => {
     history.push(`/beats/${id}/edit`);
   };
 
+  /**
+   * Deletes the beat.
+   * come back here and redirect to homepage
+   */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/beats/${id}/`);
@@ -109,6 +125,9 @@ const Beat = (props) => {
     }
   };
 
+  /**
+   * Undoes the user's fire feedback on the beat.
+   */
   const handleFireFeedbackUnlike = async () => {
     try {
       await axiosRes.delete(`/feedback/fire/${fire_id}/`);
@@ -121,9 +140,10 @@ const Beat = (props) => {
         ),
       }));
     } catch (err) {
-      console.log("Error undoing FIIIIRE feedback:", err);
+      console.log("Error undoing FIRE feedback:", err);
     }
   };
+
 
   // Cold Feedback Button
   const handleColdFeedbackLike = async () => {
@@ -142,6 +162,9 @@ const Beat = (props) => {
     }
   };
 
+  /**
+   * Undoes the user's cold feedback on the beat.
+   */
   const handleColdFeedbackUnlike = async () => {
     try {
       await axiosRes.delete(`/feedback/cold/${cold_id}/`);
@@ -175,6 +198,9 @@ const Beat = (props) => {
     }
   };
 
+  /**
+   * Undoes the user's hard feedback on the beat.
+   */
   const handleHardFeedbackUnlike = async () => {
     try {
       await axiosRes.delete(`/feedback/hard/${hard_id}/`);
@@ -208,6 +234,9 @@ const Beat = (props) => {
     }
   };
 
+  /**
+   * Undoes the user's trash feedback on the beat.
+   */
   const handleTrashFeedbackUnlike = async () => {
     try {
       await axiosRes.delete(`/feedback/trash/${trash_id}/`);
@@ -241,6 +270,9 @@ const Beat = (props) => {
     }
   };
 
+  /**
+   * Undoes the user's loop feedback on the beat.
+   */
   const handleLoopFeedbackUnlike = async () => {
     try {
       await axiosRes.delete(`/feedback/loop/${loop_id}/`);
@@ -257,6 +289,9 @@ const Beat = (props) => {
     }
   };
 
+  /**
+   * Handles the like action on the beat.
+   */
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { beat: id });
@@ -273,6 +308,9 @@ const Beat = (props) => {
     }
   };
 
+  /**
+   * Handles the unlike action on the beat.
+   */
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -289,6 +327,9 @@ const Beat = (props) => {
     }
   };
 
+  /**
+   * Component for the Fire Feedback button.
+   */
   const FireFeedbackButton = ({ className, beat, fire_id, fire_count }) => {
     return (
       <div className={styles.FireFeedbackButton}>
@@ -306,6 +347,9 @@ const Beat = (props) => {
     );
   };
 
+  /**
+   * Component for the Cold Feedback button.
+   */
   const ColdFeedbackButton = ({ className, beat, cold_id, cold_count }) => {
     return (
       <div className={styles.ColdFeedbackButton}>
@@ -323,6 +367,9 @@ const Beat = (props) => {
     );
   };
 
+  /**
+   * Component for the Hard Feedback button.
+   */
   const HardFeedbackButton = ({ className, beat, hard_id, hard_count }) => {
     return (
       <div className={styles.HardFeedbackButton}>
@@ -340,6 +387,9 @@ const Beat = (props) => {
     );
   };
 
+  /**
+   * Component for the Trash Feedback button.
+   */
   const TrashFeedbackButton = ({ className, beat, trash_id, trash_count }) => {
     return (
       <div className={styles.TrashFeedbackButton}>
@@ -357,6 +407,9 @@ const Beat = (props) => {
     );
   };
 
+  /**
+   * Component for the Loop Feedback button.
+   */
   const LoopFeedbackButton = ({ className, beat, loop_id, loop_count }) => {
     return (
       <div className={styles.LoopFeedbackButton}>
@@ -521,3 +574,4 @@ const Beat = (props) => {
 };
 
 export default Beat;
+

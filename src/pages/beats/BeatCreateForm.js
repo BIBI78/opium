@@ -16,6 +16,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router-dom";
 
 const BeatCreateForm = () => {
+  // State for form data and errors
   const [errors, setErrors] = useState({});
   const [beatData, setBeatData] = useState({
     title: "",
@@ -24,11 +25,14 @@ const BeatCreateForm = () => {
     image: "",
   });
 
+  // Ref for file input
   const mp3Input = useRef(null);
   const history = useHistory();
 
+  // Destructuring form data
   const { title, content, mp3 } = beatData;
 
+  // Event handler for input changes
   const handleChange = (event) => {
     setBeatData({
       ...beatData,
@@ -36,6 +40,7 @@ const BeatCreateForm = () => {
     });
   };
 
+  // Event handler for MP3 file selection
   const handleChangeMp3 = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -56,6 +61,7 @@ const BeatCreateForm = () => {
     reader.readAsDataURL(file);
   };
 
+  // Event handler for form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -76,11 +82,13 @@ const BeatCreateForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
+        {/* Left column */}
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Image className={`${appStyles.musicImage} ${appStyles.smallImage}`} src={musicImage} rounded />
+            {/* MP3 file upload */}
             <Form.Group className="text-center">
               {mp3 ? (
                 <>
@@ -105,27 +113,27 @@ const BeatCreateForm = () => {
                   />
                 </Form.Label>
               )}
-              {/* NEED TO ADD SOMETHING HERE TO RESTART THE ERROR MESSAGE */}
-
+              {/* File input */}
               <Form.File
                 id="mp3-upload"
                 accept=".mp3"
                 onChange={handleChangeMp3}
                 ref={mp3Input}
               />
-
+              {/* Error message for MP3 duration */}
+              {errors?.mp3?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                  {message}
+                </Alert>
+              ))}
             </Form.Group>
-            {/* Render error messages */}
-            {errors?.mp3?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
           </Container>
         </Col>
+        {/* Right column */}
         <Col md={5} lg={4} className="p-0 p-md-2">
           <Container className={appStyles.Content}>
             <div className="text-center">
+              {/* Title input */}
               <Form.Group>
                 <Form.Label>Track title</Form.Label>
                 <Form.Control
@@ -135,6 +143,7 @@ const BeatCreateForm = () => {
                   onChange={handleChange}
                 />
               </Form.Group>
+              {/* Error message for title */}
               {errors?.title && (
                 <Alert variant="warning">
                   {errors.title.map((message, idx) => (
@@ -142,6 +151,7 @@ const BeatCreateForm = () => {
                   ))}
                 </Alert>
               )}
+              {/* Content input */}
               <Form.Group>
                 <Form.Label>Info</Form.Label>
                 <Form.Control
@@ -152,6 +162,7 @@ const BeatCreateForm = () => {
                   onChange={handleChange}
                 />
               </Form.Group>
+              {/* Submit button */}
               <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
                 Create
               </Button>
@@ -164,4 +175,3 @@ const BeatCreateForm = () => {
 }
 
 export default BeatCreateForm;
-

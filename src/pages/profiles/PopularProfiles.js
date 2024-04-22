@@ -13,7 +13,12 @@ import Asset from "../../components/Asset";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
-// Display the most popular profiles and also the weatherwidget
+/**
+ * Component for displaying popular profiles.
+ * 
+ * Displays a list of the most followed profiles.
+ * Renders profiles differently on mobile view.
+ */
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
@@ -28,17 +33,20 @@ const PopularProfiles = ({ mobile }) => {
             <p>Most followed profiles.</p>
             {mobile ? (
               <div className="d-flex justify-content-around">
+                {/* Render profiles in a row for mobile view */}
                 {popularProfiles.results.slice(0, 4).map((profile) => (
                   <Profile key={profile.id} profile={profile} mobile />
                 ))}
               </div>
             ) : (
+              // Render profiles normally for desktop view
               popularProfiles.results.map((profile) => (
                 <Profile key={profile.id} profile={profile} />
               ))
             )}
           </>
         ) : (
+          // Show spinner while loading profiles
           <Asset spinner />
         )}
       </Container>

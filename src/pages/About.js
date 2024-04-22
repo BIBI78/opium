@@ -4,14 +4,21 @@ import styles from '../styles/About.module.css';
 import logo00 from "../assets/00logo.jpg";
 import { Link } from 'react-router-dom';
 
+/**
+ * Component for displaying information about the application.
+ * 
+ * Provides details about the purpose of the application and social media links.
+ */
 function About() {
   return (
     <Container className={styles.Content}>
+      {/* Application Logo */}
       <h2>
         <img src={logo00} alt="logo" height="45" />
       </h2>
       <hr />
 
+      {/* Application Description */}
       <p>
         Upload 30-second snippets of your own beats and share them with the community
       </p>
@@ -28,6 +35,8 @@ function About() {
         Etc.
         You also have the option to rate with a 5-star scale.
       </p>
+
+      {/* Sign Up and Login Links */}
       <p id={styles.Disclaimer}>
         <Link to="/signup">Sign up</Link>
         <Link to="/signin"> Login</Link>
@@ -36,6 +45,8 @@ function About() {
       <br />
 
       <hr />
+
+      {/* Social Media Icons */}
       <Row className={styles.SocialIconsAlign}>
         <a
           href="https://facebook.com"
@@ -91,7 +102,10 @@ function About() {
           <i className="fa-brands fa-linkedin-in" />
         </a>
       </Row>
+
       <br />
+
+      {/* Additional Information */}
       <p id={styles.Disclaimer}>
         <strong>Paris, France</strong>
         <br />

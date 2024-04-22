@@ -17,6 +17,12 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+/**
+ * Component for changing the user's username.
+ * 
+ * Allows the user to change their username.
+ * Handles form submission and error handling.
+ */
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
