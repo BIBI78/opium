@@ -2,6 +2,11 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useHistory } from "react-router";
 
+/**
+ * Custom hook to handle redirect based on user authentication status.
+ * Redirects to the home page if the user is logged in, otherwise redirects to the home page.
+ */
+
 export const useRedirect = (userAuthStatus) => {
   const history = useHistory();
 
@@ -9,12 +14,10 @@ export const useRedirect = (userAuthStatus) => {
     const handleMount = async () => {
       try {
         await axios.post("/dj-rest-auth/token/refresh/");
-        // if user is logged in, the code below will run
         if (userAuthStatus === "loggedIn") {
           history.push("/");
         }
       } catch (err) {
-        // if user is not logged in, the code below will run
         if (userAuthStatus === "loggedOut") {
           history.push("/");
         }

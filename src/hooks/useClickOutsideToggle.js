@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Custom hook to toggle state based on clicks outside a specified ref element.
+ */
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {

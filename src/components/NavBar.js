@@ -9,12 +9,18 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 
+/**
+ * Component for rendering the navigation bar.
+ * 
+ * Displays navigation links and icons based on user authentication status.
+ */
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const history = useHistory();
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  // Function to handle user sign out
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -27,6 +33,7 @@ const NavBar = () => {
     }
   };
 
+  // Icon for adding a beat
   const addBeatIcon = (
     <NavLink
       className={styles.NavLink}
@@ -39,6 +46,7 @@ const NavBar = () => {
     </NavLink>
   );
 
+  // Icons for logged in users
   const loggedInIcons = (
     <>
       <NavLink
@@ -60,7 +68,6 @@ const NavBar = () => {
           <span className={styles.navBarIconsText}> FEED </span>
         </i>
       </NavLink>
-
       <NavLink
         className={styles.navBarIcons}
         activeClassName={styles.Active}
@@ -70,7 +77,6 @@ const NavBar = () => {
           <span className={styles.navBarIconsText}> LIKED</span>
         </i>
       </NavLink>
-
       <NavLink
         className={`${styles.NavLink} ${styles.navBarIcons}`}
         to="/"
@@ -80,7 +86,6 @@ const NavBar = () => {
           <span className={styles.navBarIconsText}> LOGOUT</span>
         </i>
       </NavLink>
-
       <NavLink
         className={styles.navBarIcons}
         to={`/profiles/${currentUser?.profile_id}`}
@@ -94,6 +99,7 @@ const NavBar = () => {
     </>
   );
 
+  // Icons for logged out users
   const loggedOutIcons = (
     <>
       <NavLink
@@ -105,7 +111,6 @@ const NavBar = () => {
           <span className={styles.navBarIconsText}> LOGIN</span>
         </i>
       </NavLink>
-
       <NavLink
         to="/signup"
         className={styles.NavLink}
