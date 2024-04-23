@@ -317,7 +317,9 @@ web: serve -s build
 
 - [LAUREN MENTOR](https://github.com/CluelessBiker) I could not have wished for a better mentor.
 
-- The README doc outline I got from here.[HERE](https://github.com/CluelessBiker/project5-red-crayon)
+- The README doc outline for the frontend I got from here.[HERE](https://github.com/CluelessBiker/project5-red-crayon)
+
+- The README doc outline for the backend I got from here.[HERE](https://github.com/CluelessBiker/project5-drf-api)
 
 - The outline for the ratings app I got from [HERE](https://github.com/andreas-ka/explore-sthlm-react-frontend)
 
