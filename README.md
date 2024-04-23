@@ -185,7 +185,8 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 1. Mp3 upload :
 
-- Resolved by rewriting the whole.
+- 
+-
 
 2. 500 server error:
 
@@ -213,13 +214,17 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 2.  [ESLint](https://eslint.org/).
 
+3.  The lighthouse score couldnt be helped because the mp3 files are huge.
+    ![Jigsaw validator message](src/assets/readme/lighthouse2.png)
+
 ### Unfixed Bugs
 
-1. I have not been able to get the NavBar to be as seemless as I would like.
+1. I had a nightmare writing the MP3 app part of this project. I went through maybe five different iterations of the code. I tried fixing the first three attempts, but bugs kept appearing out of nowhere. I couldn't give up on it though; I had no other ideas I felt passionate about, and I didn't want to turn in something lame that I couldn't show my friends. So, I deleted everything and tried again, but that attempt failed. Then I rewrote it once more, and somehow it came together, albeit with a few bugs. I encountered difficulties uploading the MP3s to Cloudinary, and once that was accomplished, it was challenging to obtain the appropriate Cloudinary link for the frontend.The original MP3 link came with an unexpected double 'https' prefix: ![Original mp3 link](src/assets/readme/OG_mp3_link.png)
+which I could not remove.So I had to manually extract the link, create an 'mp3_url' variable to strip away the double prefix, and then integrate it into my code: ![New mp3 link ](src/assets/readme/NEW_mp3_link.png)
 
 2. When I started this project I wanted the user to be able to upload full songs ( mp3s up to 3 minutes at least ), I never figured out how to to do that.
 
-3. THESE ARENT REALLY BUGS COME BACK TO THIS
+3. 
 
 ## Technologies Used
 
