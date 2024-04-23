@@ -1,5 +1,3 @@
-slatt00
-
 # OPIUM
 
 Opium just wants to make it simple for producers, rappers and fans of music to cut through the nonsense of social media
@@ -183,16 +181,11 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ##### \* There was an incredible amount of testing and this revealed several problems and gaps in my understanding.\*
 
-1. Mp3 upload :
+1. Mp3 upload : At the beginning, I had to conduct extensive testing on the MP3 upload process. I encountered numerous problems and errors in the console, prompting me to repeatedly test and retest uploading the files until I eventually found a satisfactory solution. It was definitly trickier than I initially expected.
 
-- 
--
+2. CRUD functionality has been tested for each of the following: Beats| Feedback buttons | Star rating | Comments | Likes | Follow | Profile
 
-2. 500 server error:
-
-- Resolved with the aid of tutor support. All database migrations for both the Django project & apps needed to be cleared & remigrated. The precise steps for this have been documented in the README for the deployed backend API.
-
-3. CRUD functionality has been tested for each of the following: Beats| Feedback buttons | Star rating | Comments | Likes | Follow | Profile
+3.
 
 - Likes & Follow may only be created & deleted
 - Profile can only be updated
@@ -220,11 +213,9 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ### Unfixed Bugs
 
 1. I had a nightmare writing the MP3 app part of this project. I went through maybe five different iterations of the code. I tried fixing the first three attempts, but bugs kept appearing out of nowhere. I couldn't give up on it though; I had no other ideas I felt passionate about, and I didn't want to turn in something lame that I couldn't show my friends. So, I deleted everything and tried again, but that attempt failed. Then I rewrote it once more, and somehow it came together, albeit with a few bugs. I encountered difficulties uploading the MP3s to Cloudinary, and once that was accomplished, it was challenging to obtain the appropriate Cloudinary link for the frontend.The original MP3 link came with an unexpected double 'https' prefix: ![Original mp3 link](src/assets/readme/OG_mp3_link.png)
-which I could not remove.So I had to manually extract the link, create an 'mp3_url' variable to strip away the double prefix, and then integrate it into my code: ![New mp3 link ](src/assets/readme/NEW_mp3_link.png)
+   which I could not remove.So I had to manually extract the link, create an 'mp3_url' variable to strip away the double prefix, and then integrate it into my code: ![New mp3 link ](src/assets/readme/NEW_mp3_link.png)
 
-2. When I started this project I wanted the user to be able to upload full songs ( mp3s up to 3 minutes at least ), I never figured out how to to do that.
-
-3. 
+2. I underestimated the fragility of this project. When I created a branch and began working there, a new path to Cloudinary was generated, causing my default images to stop working entirely. Initially, I decided to set this issue aside, assuming it wasn't a big deal.But this turned out to be a mistake. I later realized that this was actually a semi huge issue and had to invest considerable effort to resolve it. If felt like I had to part seas and move mountains just to get everything working again. ![Default image bug ](src/assets/readme/default_image_bug.png) So this works for now but it is not optimal.
 
 ## Technologies Used
 
