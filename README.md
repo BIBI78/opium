@@ -334,6 +334,8 @@ web: serve -s build
 
 - The outline for the ratings app I got from [HERE](https://github.com/andreas-ka/explore-sthlm-react-frontend) .
 
+- I used [ChatGPT](https://chat.openai.com/) To spell check and correct grammer throughout this project and to help add notes to the code.
+
 ### Media
 
 - All images came from [Google images](https://www.google.com/)
