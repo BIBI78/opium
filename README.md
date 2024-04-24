@@ -183,21 +183,23 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 1. Mp3 upload : At the beginning, I had to conduct extensive testing on the MP3 upload process. I encountered numerous problems and errors in the console, prompting me to repeatedly test and retest uploading the files until I eventually found a satisfactory solution. It was definitly trickier than I initially expected.
 
-2. CRUD functionality has been tested for each of the following: Beats| Feedback buttons | Star rating | Comments | Likes | Follow | Profile
+2. CRUD functionality has been tested for each of the following: Beats| Feedback buttons | Star rating | Comments | Likes | Follow | Profiles
 
-3.
+3. MORE TESTING .
 
-- Likes & Follow may only be created & deleted
-- Profile can only be updated
-- Ratings cannot be updated
+- Likes & Follow may only be created & deleted.
+- Profile can only be updated.
+- Ratings cannot be updated.
 
-4. All nav links open to the correct page.
-5. All external links open to a new browser window.
-6. Pages intended for logged-in users only will redirect logged-out users back to the home page.
-7. Users attempting to edit content that they did not publish are redirected back to the home page.
-8. Users are able to create a new account.
-9. Users with an existing account are able to log in.
-10. Each user has the ability to log out.
+Certainly, here's the reworded list:
+
+1. The correct page opens for all navigation links.
+2. External links open in a new browser window.
+3. Logged-out users attempting to access pages for logged-in users are redirected to the home page.
+4. Users trying to edit content they didn't publish are redirected to the home page.
+5. Creating a new account is possible for users.
+6. Existing account holders can log in.
+7. Every user has the option to log out.
 
 ### Validator Testing
 
