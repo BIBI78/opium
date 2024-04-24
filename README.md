@@ -241,16 +241,25 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ## Components
 
-Several components have been implemented within this project that have been reused throughout the project:
+### The components I used are :
 
-1. axiosDefault.js: Manages communication with the backend API.
-2. Asset.js: Handles the loading spinner and user avatar display throughout the site.
-3. DropdownMenu.js: Provides functionality for users to edit or delete their posts through a dropdown menu.
-4. CurrentUserContext.js: Confirms the logged-in status of users to determine available functions.
-5. ProfileDataContext.js: Manages the functionality related to following or unfollowing other users' profiles.
-6. ToggleCollapse.js: Manages the toggling of collapsible elements.
-7. useRedirect.js: Facilitates redirection of users to another page if they lack authorization to access the current page.
-8. utils.js: Supplies functionality to components utilizing the Infinite Scroll feature.
+1. Assets.js
+2. Avatar.js
+3. MoreDroptown.js
+4. NavBar.js
+5. NotFound.js
+
+\*The only I reusded is the Asset.js
+
+\*The rest are helper functions ,utlitly functions and hooks
+
+6. axiosDefault.js
+7. DropdownMenu.js
+8. CurrentUserContext.js
+9. ProfileDataContext.js
+10. ToggleCollapse.js
+11. useRedirect.js
+12. utils.js
 
 #
 
@@ -317,11 +326,11 @@ web: serve -s build
 
 - [LAUREN MENTOR](https://github.com/CluelessBiker) I could not have wished for a better mentor.
 
-- The README doc outline for the frontend I got from here.[HERE](https://github.com/CluelessBiker/project5-red-crayon)
+- The README doc outline for the frontend I got from [HERE](https://github.com/CluelessBiker/project5-red-crayon).
 
-- The README doc outline for the backend I got from here.[HERE](https://github.com/CluelessBiker/project5-drf-api)
+- The README doc outline for the backend I got from [HERE](https://github.com/CluelessBiker/project5-drf-api).
 
-- The outline for the ratings app I got from [HERE](https://github.com/andreas-ka/explore-sthlm-react-frontend)
+- The outline for the ratings app I got from [HERE](https://github.com/andreas-ka/explore-sthlm-react-frontend) .
 
 ### Media
 
