@@ -48,33 +48,60 @@ The live link for " O P I U M" [HERE](https://opium-a765be924d82.herokuapp.com/)
 
 ### Site Purpose:
 
-Opium is a simple music sharing app. The purpose is to share music with your peers wherever you are and get feedback.
+OPIUM is as a straightforward application designed for sharing music among users. Its objective is to facilitate the sharing of music(BEATS) with the world through a digital platform. The app aims to provide a space where users can receive feedback from peers.
+
+Key features:
+
+1. Music Sharing: Users can upload and share their favorite music tracks with their peers.
+2. Peer Interaction: Users can interact with each other by listening to shared tracks and providing feedback or comments.
+3. Feedback Mechanism: Opium includes features that enable users to give and receive feedback on shared beats,creating a collaborative and supportive community.
+4. Opium aims to create a community-driven platform where music enthusiasts can connect, share their passion for music, and engage in meaningful interactions through feedback and comments.
 
 ### Site Goal:
 
-The goal of Opium is tpo get people to share beats and give feedback and make connections.
+The goal of OPIUM is to get people to share beats and give feedback and make connections.
 
 ### Audience:
 
 Everyone who enjoys sharing music.
+(Producers,fans, rapopers, the curious, anyone)
 
 ### Communication:
 
-The layout is straightforward: The main content ( the music ) is the center piece. Navigation is at the top and everything else is kept to the side.
+The communication style of Opium revolves around simplicity.Its all about the music and feedback.
 
 ### Current User Goals:
 
-The goal is to build a new community that is all about sharing/making/talking about music.
+The goal is to build a new community that is all about sharing/making/talking about music. The focus is
+
+1. Community Engagement
+2. Content Contribution
+3. Feedback and Improvement
 
 ### New User Goals:
 
 The user shouldnt be mindlessly scrolling but listeing to all the beats and reacting.
 
+1. Active Engagement: users should immerse themselves and listening to beats, while interacting with the app.
+2. Participation: Users shouldnt be shy. They are emcouraged to participate in feedback and ratings.
+
 ### Future Goals:
 
-- Provide more ways for the user to intereact with the app: For example remixing a beat in the app or rapping on the beat and uploading it in the comments.
-- Create a messaging feature.
-- Create a way for user to sell beats and services.
+1. Provide more ways for the user to intereact with the app:
+
+- Enable users to remix beats directly within the app, allowing for creative reinterpretations and collaborations aka REMIXES
+  (_DEFINITLEY NEED THAT_)
+- Implement a feature for users to record and upload their own vocals or rap verses over beats. (_DEFINITLEY NEED THAT_)
+
+2. Messaging Functionality:
+
+- Introduce a messaging feature.
+- Direct messaging , Group chats, etc.
+
+3. Monetization Opportunities:
+
+- Develop a marketplace feature where users can sell their beats and offer music-related services such as mixing, mastering, or custom production.
+- Implement secure payment processing and transaction management.
 
 ## User Stories
 
@@ -167,14 +194,32 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ### Features Left to Implement:
 
-- In app remixing ( I want the user to be able to slow down speed up beats and add vocals)
-- The ability see the best and worst beats ( beats with the most postive/negative feedback)
-- In app bidding( users should be able to sell beats to other users)
-- Notifications ( typical app notifcations ,new follwoer , new like , new comment etc, favorite users new posts).
-- Some sort of private messaging , direct messages,maybe even group chats.
-- Music wave when the beat starts playing .
-- Longer MP3 uploads
+1. In-App Remixing:
 
+- Enable users to manipulate beats directly within the app, allowing them to adjust tempo, pitch, and other parameters.
+- Tools for users to overlay vocals or other audio elements onto existing beats,creative remixing and mashup creation.
+
+2. Beat Ranking:
+
+- Implement a ranking system that highlights the best and worst beats based on user feedback. This could involve "aggregating" feedback data such as likes, comments, and ratings to identify the most positively or negatively rated/received beats.
+
+3. In-App Bidding:
+
+- Introduce a feature that enables users to buy and sell beats directly within the app through a bidding system. Users can list their beats for sale, specify starting prices and bidding durations, and engage in bidding wars with other users. This functionality can facilitate a vibrant marketplace within the app and provide opportunities for users to monetize their musical creations.
+
+4. Notifications:
+
+- Implement a notification system to keep users informed about relevant activities within the app. Notifications could include alerts for new followers, likes, comments, and beats from favorite users.
+
+5. Private Messaging:
+
+- Introduce private messaging functionality that allows users to communicate directly with each other.
+
+6. Music Wave Visualization:
+- JSX WAVE VISUALIZRER 
+
+7. Extended MP3 Uploads: 
+- Increase the maximum duration for MP3 uploads to accommodate longer tracks and compositions and whatever else. 
 ## Testing
 
 ### Manual Testing:
@@ -280,7 +325,7 @@ npx create-react-app . --use-npm
 npm start
 ```
 
-2. Then nstall all the following packages using the command `npm install`:
+2. Then install all the following packages using the command `npm install`:
 
 ```
 react-bootstrap@1.6.3 bootstrap@4.6.0
