@@ -3,7 +3,7 @@
 Opium just wants to make it simple for producers, rappers and fans of music to cut through the nonsense of social media
 and get to straight to the MUSIC.
 
-- The repository for the DRF-API associated with this project is available [HERE](https://github.com/BIBI78/drf_api). The installation, set up, and deployment steps are all in this README doc.
+- The repository for the DRF-API associated with this project can be found [HERE](https://github.com/BIBI78/drf_api). The installation, set up, and deployment steps are all found in this README doc.
 
 #### DEPLOYED BACKEND API HEROKU [LINK](https://drfa-api-0c6557539d5a.herokuapp.com/)
 
@@ -13,7 +13,7 @@ and get to straight to the MUSIC.
 
 ![Site view across devices](src/assets/readme/amiresponsive.png)
 
-The live link for " O P I U M" [HERE](https://opium-a765be924d82.herokuapp.com/)
+The live link for "OPIUM" [HERE](https://opium-a765be924d82.herokuapp.com/)
 
 ## Table of Contents
 
@@ -90,8 +90,8 @@ The user shouldnt be mindlessly scrolling but listeing to all the beats and reac
 1. Provide more ways for the user to intereact with the app:
 
 - Enable users to remix beats directly within the app, allowing for creative reinterpretations and collaborations aka REMIXES
-  (_DEFINITLEY NEED THAT_)
-- Implement a feature for users to record and upload their own vocals or rap verses over beats. (_DEFINITLEY NEED THAT_)
+
+- Implement a feature for users to record and upload their own vocals or rap verses over beats.
 
 2. Messaging Functionality:
 
@@ -216,10 +216,13 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 - Introduce private messaging functionality that allows users to communicate directly with each other.
 
 6. Music Wave Visualization:
-- JSX WAVE VISUALIZRER 
 
-7. Extended MP3 Uploads: 
-- Increase the maximum duration for MP3 uploads to accommodate longer tracks and compositions and whatever else. 
+- JSX WAVE VISUALIZER
+
+7. Extended MP3 Uploads:
+
+- Increase the maximum duration for MP3 uploads to accommodate longer tracks and compositions and whatever else.
+
 ## Testing
 
 ### Manual Testing:
@@ -228,15 +231,38 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 1. Mp3 upload : At the beginning, I had to conduct extensive testing on the MP3 upload process. I encountered numerous problems and errors in the console, prompting me to repeatedly test and retest uploading the files until I eventually found a satisfactory solution. It was definitly trickier than I initially expected.
 
-2. CRUD functionality has been tested for each of the following: Beats| Feedback buttons | Star rating | Comments | Likes | Follow | Profiles
+1. CRUD functionality has been tested for each of the following: Beats| Feedback buttons | Star rating | Comments | Likes | Follow | Profiles
 
-3. MORE TESTING .
+1. Beats:
 
-- Likes & Follow may only be created & deleted.
-- Profile can only be updated.
-- Ratings cannot be updated.
+- Tested creation, retrieval, updating, and deletion of beats.
+- Ensured all operations function as expected.
 
-Certainly, here's the reworded list:
+2. Feedback Buttons:
+
+- Tested functionality of feedback buttons (e.g., fire, cold, hard, trash, loop) to ensure they trigger the intended actions and update beat feedback appropriately.
+
+3. Star Rating:
+
+- Tested the star rating feature to ensure users can rate beats accurately and that ratings are reflected correctly.
+
+4. Comments:
+
+- Verified the ability to add, view, edit, and delete comments on beats.
+
+5. Likes:
+
+- Tested liking and unliking beats to ensure likes are recorded and reflected accurately.
+
+4. Follow:
+
+- Tested the follow functionality to verify users can follow/unfollow each other successfully.
+
+6. Profiles:
+
+- Ensured profile creation, updating, and viewing functionality works correctly, including profile picture upload and bio editing.
+
+### Additional Testing :
 
 1. The correct page opens for all navigation links.
 2. External links open in a new browser window.
@@ -252,10 +278,10 @@ Certainly, here's the reworded list:
 
 ![Jigsaw validator message](src/assets/readme/css_validator.png)
 
-2.  [ESLint](https://eslint.org/).
+2. (_NOTE_ COULD NOT GET ESLINTER TO WORK YET ) [ESLint](https://eslint.org/).
 
-3.  The lighthouse score couldnt be helped because the mp3 files are huge.
-    ![Jigsaw validator message](src/assets/readme/lighthouse2.png)
+3. The lighthouse score couldnt be helped because the mp3 files are huge.
+   ![Jigsaw validator message](src/assets/readme/lighthouse2.png)
 
 ### Unfixed Bugs
 
