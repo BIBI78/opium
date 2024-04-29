@@ -9,7 +9,7 @@ and get to straight to the MUSIC.
 
 #### DEPLOYED FRONTEND HEROKU [LINK - LIVE SITE](https://opium-a765be924d82.herokuapp.com/)
 
-#### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/BIBI78/opium)
+#### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/BIBI78/drf_api)
 
 ![Site view across devices](src/assets/readme/amiresponsive.png)
 
