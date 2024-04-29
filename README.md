@@ -278,7 +278,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ![Jigsaw validator message](src/assets/readme/css_validator.png)
 
-2.Es Linter checks out with no errors. [ESLint](https://eslint.org/).
+2.ESLint validates your code as you work. If an error is encountered, the app will not compile. This is the fundamental role of ESLint. Es Linter checks out with no errors. [ESLint](https://eslint.org/).
 
 3. The lighthouse score couldnt be helped because the mp3 files are huge.
    ![Jigsaw validator message](src/assets/readme/lighthouse2.png)
