@@ -278,7 +278,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 ![Jigsaw validator message](src/assets/readme/css_validator.png)
 
-2. (_NOTE_ COULD NOT GET ESLINTER TO WORK YET ) [ESLint](https://eslint.org/).
+2.Es Linter checks out with no errors. [ESLint](https://eslint.org/).
 
 3. The lighthouse score couldnt be helped because the mp3 files are huge.
    ![Jigsaw validator message](src/assets/readme/lighthouse2.png)
@@ -289,6 +289,8 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
    which I could not remove.So I had to manually extract the link, create an 'mp3_url' variable to strip away the double prefix, and then integrate it into my code: ![New mp3 link ](src/assets/readme/NEW_mp3_link.png)
 
 2. I underestimated the fragility of this project. When I created a branch and began working there, a new path to Cloudinary was generated, causing my default images to stop working entirely. Initially, I decided to set this issue aside, assuming it wasn't a big deal.But this turned out to be a mistake. I later realized that this was actually a semi huge issue and had to invest considerable effort to resolve it. If felt like I had to part seas and move mountains just to get everything working again. ![Default image bug ](src/assets/readme/default_image_bug.png) So this works for now but it is not optimal.
+
+3. Getting all the apps and packages to work together was a little tricky. With the "Star-rating-react" package, I had to downgrade to an earlier version before deployment. Consequently, to get everything to work, I had to make ad hoc edits to the frontend logic of the code.
 
 ## Technologies Used
 
