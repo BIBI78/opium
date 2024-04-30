@@ -62,8 +62,15 @@ const BeatCreateForm = () => {
   };
 
   // Event handler for form submission
+  // Event handler for form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // Validation: Check if title is provided
+    if (!title.trim()) {
+      setErrors({ title: ["Title is required"] });
+      return; // Exit early if title is not provided
+    }
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("content", content);
@@ -78,6 +85,7 @@ const BeatCreateForm = () => {
       }
     }
   };
+
 
   return (
     <Form onSubmit={handleSubmit}>
