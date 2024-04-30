@@ -294,6 +294,8 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 4. There was 401 authorization error that would appear in the console of my browser from time to time but it has not appeared lately and does not effect the functionality of the project.
 
+5. (_IMPORTANT_) The login functionality may not work as expected on certain mobile browsers, particularly if cross-site tracking prevention is enabled. This is a bug the tutors have advised is not necessary to the project and which I dont have the luxury of time to resolve.
+
 ## Technologies Used
 
 ### Main Languages Used
