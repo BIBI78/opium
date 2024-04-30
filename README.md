@@ -292,6 +292,8 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 3. Getting all the apps and packages to work together was a little tricky. With the "Star-rating-react" package, I had to downgrade to an earlier version before deployment. Consequently, to get everything to work, I had to make ad hoc edits to the frontend logic of the code.
 
+4. There was 401 authorization error that would appear in the console of my browser from time to time but it has not appeared lately and does not effect the functionality of the project.
+
 ## Technologies Used
 
 ### Main Languages Used
